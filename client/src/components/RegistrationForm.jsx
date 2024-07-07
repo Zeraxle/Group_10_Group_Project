@@ -13,13 +13,59 @@ export const RegistrationForm = () => {
     password: '',
     confirmPassword: ''
   })
-  const [errors, setErrors] = useState({})
 
+  const [errors, setErrors] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    address: '',
+    city: '',
+    state: '',
+    password: '',
+    confirmPassword: ''
+  })
+  
   const changeHandler = e => {
-    setUser({...user, [e.target.name]: e.target.value})
+    const {name, value} = e.target
+    setUser({...user, [name]: value})
+    validateUserAttribute(name, value)
   }
+
+  const validateUserAttribute = (name, value) => {
+    const validations = {
+      firstName = value => value.length >=2 && value.length <= 25 ? true : "First name must be at least two characters and less that twenty-five characters long.",
+      lastName = value => value.length >=2 && value.length <= 25 ? true : "Last name must be at least two characters and less than twenty-five characters long.",
+      email : value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? true : "Please enter a valid email.",
+      address: value => value.length >= 6 && value.length <= 50 ? true : "Address must be at least six characters and less than fifty characters long.",
+      city: value => value.length >= 6 && value.length <= 50 ? true : "City must be at least six characters and less than fifty characters long.",
+      state: value => value.length >= 4 && value.length <= 50 ? true : "State must be at least four characters and less than fifty characters long.",
+      password : value => value.length >= 8 && value.length <= 50 ? true : "Password must be at least eight characters and less than fifty characters long.",
+      confirmPassword : (value) => {
+        if( name == "confirmPassword" ){ return person.password === value ? true : "Your passwords do not match." }
+        if( name == "password" ){ return person.confirmPassword === value ? true : "Your passwords do not match." }}
+    }
+    if ( name == "password" ){ setErrors( prev => ( {...prev, confirm_password : validations["confirm_password"](value)} ) ) }
+      setErrors( prev => ( {...prev, [name] : validations[name](value)} ) )
+  }
+
+  const readyToSubmit = () => {
+    for ( let key in errors ){
+        if( errors[key] !== true ){
+            return false
+        }
+    }
+    return true
+}
+
+  
   const submitHandler = e => {
     e.preventDefault()
+    if(!readyToSubmit()){
+      alert("Please fill out form correctly. Thank you.")
+      navigate('/')
+    }else{
+      
+    }
 
   }
   
