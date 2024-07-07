@@ -20,10 +20,11 @@ export const RegistrationForm = () => {
   }
   const submitHandler = e => {
     e.preventDefault()
-    
+
   }
   
   return (<>
+  <h1>Pizza's Pete</h1>
     <form>
       <label>
         First Name:
