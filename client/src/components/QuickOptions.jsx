@@ -9,6 +9,7 @@ export const QuickOptions = () => {
       <h1>Quick Options</h1>
       <div className='d-flex justify-content-evenly'>
         <div>
+          <p>Adding</p>
           <Link><button>New Order</button></Link>
         </div>
         <div>
