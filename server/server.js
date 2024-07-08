@@ -1,9 +1,12 @@
 import Express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
-import postRouter from "./routes/posts.routes.js"
+
 import userRouter from "./routes/user.routes.js"
 import { dbConnect } from "./config/sequelize.config.js"
+
+
+
 
 
 const app = Express()
@@ -14,7 +17,6 @@ const app = Express()
 // SETS UP EXPRESS WITH JSON DATA AND CORS 
 app.use(Express.json(), cors())
 
-app.use("/api", postRouter)
 
 app.use("/user", userRouter)
 // WE TELL OUR APP THAT IS CONNECTED TO EXPRESS THAT FOR EACH ROUTE ADD /api to its end 
@@ -32,3 +34,14 @@ dbConnect()
 app.listen(PORT, ()=>
     console.log(`Listening on port: ${PORT}`)
     )
+
+
+
+
+
+
+
+
+
+
+

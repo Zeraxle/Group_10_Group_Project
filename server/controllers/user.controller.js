@@ -1,4 +1,4 @@
-import Post from "../models/post.model.js";
+
 import User from "../models/user.model.js";
 
 
@@ -86,9 +86,3 @@ export const getALLUsersPosts = async (req, res, next) =>{
 
 }
 
-// .create({ email: 'john.doe@example.com', password: 'SuperSecret!' });
-// // { id: 1, email: 'john.doe@example.com', password: '$2a$12$VtyL7j5xx6t/GmmAqy53ZuKJ1nwPox5kHLXDaottN9tIQBsEB3EsW' }
-
-// const user = await User.findOne({ where: { email: 'john.doe@example.com' } });
-// user.authenticate('WrongPassword!'); // false
-// user.authenticate('SuperSecret!'); // true

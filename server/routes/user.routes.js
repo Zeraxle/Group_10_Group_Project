@@ -2,7 +2,6 @@ import { Router } from "express";
 
 import { createUser, findAllUsers, findUserById, logUserIn,getALLUsersPosts} from "../controllers/user.controller.js";
 
-
 const userRouter = Router()
 
 userRouter.route("/")
