@@ -9,10 +9,9 @@ const Nav = () => {
     return(<>
         <header>
             <nav className="nav">
-                <h3>Pizza Pete's</h3>
                 <button><Link to={'/'}>Home</Link></button>
                 <button><Link to={'/'}>Order</Link></button>
-                <button><Link to={'/'}>Account</Link></button>
+                <button><Link to={'/user/account'}>Account</Link></button>
                 <button><Link to={'/'}>Logout</Link></button>
             </nav>
         </header>
