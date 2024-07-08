@@ -56,5 +56,16 @@ export const getALLUsersPosts = async (userData) =>{
 }
 
 
+export const logOutUser = async (userData) =>{
+
+    // eslint-disable-next-line no-useless-catch
+    try {
+        const  res = await USER_INSTANCE.get(`/logout/${userData._id}`)
+        return res.data
+    }catch(error) {throw error}
+}
+
+
+
 
 

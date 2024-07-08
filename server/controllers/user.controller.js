@@ -86,3 +86,14 @@ export const getALLUsersPosts = async (req, res, next) =>{
 
 }
 
+export const logOutUser = async (req, res) => {
+    try {
+        const {id} = req.params
+        const logUserOut = await User.findByPk(id)
+        res.clearCookie("userToken")
+        return res.status(200).json({message: "Logged out successfully."})
+    }
+    catch (err) {
+        return res.status(500).json(err)
+    }
+}
