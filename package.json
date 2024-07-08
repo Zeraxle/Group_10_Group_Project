@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "mysql2": "^3.10.2",
-    "sequelize": "^6.37.3",
-    "sequelize-bcrypt": "^1.2.0"
-  }
-}
