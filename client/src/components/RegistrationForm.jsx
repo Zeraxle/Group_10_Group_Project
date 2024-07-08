@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import Nav from './Nav'
 
 export const RegistrationForm = () => {
   const navigate = useNavigate()
@@ -33,8 +34,8 @@ export const RegistrationForm = () => {
 
   const validateUserAttribute = (name, value) => {
     const validations = {
-      firstName = value => value.length >=2 && value.length <= 25 ? true : "First name must be at least two characters and less that twenty-five characters long.",
-      lastName = value => value.length >=2 && value.length <= 25 ? true : "Last name must be at least two characters and less than twenty-five characters long.",
+      firstName: value => value.length >=2 && value.length <= 25 ? true : "First name must be at least two characters and less that twenty-five characters long.",
+      lastName: value => value.length >=2 && value.length <= 25 ? true : "Last name must be at least two characters and less than twenty-five characters long.",
       email : value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? true : "Please enter a valid email.",
       address: value => value.length >= 6 && value.length <= 50 ? true : "Address must be at least six characters and less than fifty characters long.",
       city: value => value.length >= 6 && value.length <= 50 ? true : "City must be at least six characters and less than fifty characters long.",
@@ -70,7 +71,11 @@ export const RegistrationForm = () => {
   }
   
   return (<>
-  <h1>Pizza's Pete</h1>
+  <header>
+    <h1>Pizza's Pete</h1>
+    <Nav />
+  </header>
+
     <form>
       <label>
         First Name:
