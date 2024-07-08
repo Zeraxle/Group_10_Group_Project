@@ -1,6 +1,6 @@
 import { DataTypes, Sequelize } from "sequelize";
 import pkg from 'bcrypt-node';
-import Post from "./post.model.js";
+
 
 import useBcrypt from 'sequelize-bcrypt'
 // const {useBcrypt}  = Sequelize-Bcrypt;
@@ -8,7 +8,6 @@ import useBcrypt from 'sequelize-bcrypt'
 import { sequilize } from "../config/sequelize.config.js"
 // const bcrypt = require('bcrypt')
 const User = sequilize.define('user',{
-
     id :{
         autoIncrement : true,
         type : DataTypes.BIGINT,
@@ -17,31 +16,23 @@ const User = sequilize.define('user',{
     },
 
     firstName :{
-        type: DataTypes.STRING,
-        allowNull : false,
-        validate:{
-            len: [2,25]
+        type : DataTypes.STRING,
+        allowNull:  false,
+        validate : {
+            len:[2,25],
         }
+
     },
 
     lastName :{
-        type: DataTypes.STRING,
+        type : DataTypes.STRING,
         allowNull : false,
         validate:{
-            len: [2,25]
+            len:[2,25],
+
         }
     },
-
-    username :{
-        type: DataTypes.STRING,
-        allowNull : false,
-        unique : true,
-        validate:{
-            len: [8,25]
-        }
-    },
-
-    email :{
+    email:{
         type: DataTypes.STRING,
         allowNull : false,
         unique : true,
@@ -50,21 +41,38 @@ const User = sequilize.define('user',{
             len: [8,25]
         }
     },
-    password :{
+    address : {
         type: DataTypes.STRING,
+        allowNull: false,
+        validate :{
+            len:[6,50],
+        }
+    },
+    city :{
+        type : DataTypes.STRING,
         allowNull : false,
-        validate:{
-            len: [8,25]
+        validate: {
+            len:[4,50],
+
+        }
+    },
+    state : {
+        type : DataTypes.STRING,
+        allowNull : false,
+        validate :{
+            len :[4,50],
+        }
+    },
+    password :{
+        type : DataTypes.STRING,
+        allowNull : false,
+        validate :{
+            len : [8,50],
         }
     },
 
-    // confirmPassword :{
-    //     type: DataTypes.STRING,
-    //     allowNull : false,
-    //     validate:{
-    //         len: [8,25]
-    //     }
-    // },
+
+    // timestamps: true
 
 })
     const options ={
@@ -84,7 +92,7 @@ const User = sequilize.define('user',{
 
 
 User.sync({alter: true})
-    .then(console.log("Post table created!!"))
-    .catch(error => console.log("Post table creation error : ",  error))
+    .then(console.log("User table created!!"))
+    .catch(error => console.log("User table creation error : ",  error))
 
 export default User

@@ -22,7 +22,7 @@
     "sequelize-bcrypt": "^1.2.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.4"
   },
   "type": "module",
   "description": ""

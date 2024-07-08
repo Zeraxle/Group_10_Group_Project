@@ -71,7 +71,6 @@ export const RegistrationForm = () => {
   
   <div className="container">
     <h1 className='text-center text-primary'>Pizza's Pete</h1>
-    <Nav/>
       <div className="card">
         <div className="card-body">
           <h2 className='text-center text-danger'>Register</h2>
