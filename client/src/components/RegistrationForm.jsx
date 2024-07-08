@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Nav from './Nav'
+import { createUser } from '../services/UserServices'
 
 export const RegistrationForm = () => {
   const navigate = useNavigate()
@@ -65,6 +66,10 @@ export const RegistrationForm = () => {
       alert("Please fill out form correctly. Thank you.")
       return
     }
+    createUser(user)
+      .then(res => {navigate('/home')})
+      // .then(res => console.log(res))
+      .catch(err => console.log(err))
   }
   
   return (<>

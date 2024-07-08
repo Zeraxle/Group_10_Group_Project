@@ -17,7 +17,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mongoose": "^8.4.0",
-    "mysql2": "^3.10.1",
+    "mysql2": "^3.10.2",
     "sequelize": "^6.37.3",
     "sequelize-bcrypt": "^1.2.0"
   },

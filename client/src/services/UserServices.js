@@ -12,7 +12,7 @@ export const createUser = async userData =>{
 
     // eslint-disable-next-line no-useless-catch
     try {
-        const res = await USER_INSTANCE.post('', userData)
+        const res = await USER_INSTANCE.post('/', userData)
         return res.data
     }catch(error){throw error}
 }
@@ -31,7 +31,7 @@ export const logUserIn = async (userData) =>{
 
     // eslint-disable-next-line no-useless-catch
     try {
-        const  res = await USER_INSTANCE.post('/username', userData)
+        const  res = await USER_INSTANCE.post('/login', userData)
         return res.data
     }catch(error) {throw error}
 }

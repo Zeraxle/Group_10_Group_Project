@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import { logUserIn } from '../services/UserServices'
 
 export const LoginForm = () => {
   const navigate = useNavigate()
@@ -42,6 +43,10 @@ export const LoginForm = () => {
       alert("Please fill out form correctly. Thank you.")
       return
     }
+    logUserIn(user)
+      .then(res => {navigate('/home')})
+      // .then(res => console.log(res))
+      .catch(err => console.log(err))
   }
 
   return (<>
