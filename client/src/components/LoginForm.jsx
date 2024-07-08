@@ -45,29 +45,45 @@ export const LoginForm = () => {
   }
 
   return (<>
-  <form onSubmit={submitHandler}>
-    {errors.email && <p>{errors.email}</p>}
-    {errors.password && <p>{errors.password}</p>}
-    <label>
-      Email:
-      <input 
-        type="text" 
-        name="email"
-        value={user.email}
-        onChange={changeHandler}
-      />
-    </label>
-    <label>
-      Password:
-      <input 
-        type="password" 
-        name="password"
-        value={user.password}
-        onChange={changeHandler}
-      />
-    </label>
-    <input type="submit" value="Login" />
-    <Link to={'/'}>Don't have an account?</Link>
-  </form>
+  <div className="container">
+  <h1 className='text-center text-primary'>Pizza's Pete</h1>
+    <div className="card">
+      <div className="card-body">
+        <h2 className='text-center text-danger'>Login</h2>
+        <form onSubmit={submitHandler}>
+          {errors.email && <p>{errors.email}</p>}
+          {errors.password && <p>{errors.password}</p>}
+          <div className="form-group">
+            <label className='form-label'>
+              Email:
+              <input
+                type="text"
+                name="email"
+                value={user.email}
+                onChange={changeHandler}
+                className='form-control'
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label className='form-label'>
+              Password:
+              <input
+                type="password"
+                name="password"
+                value={user.password}
+                onChange={changeHandler}
+                className='form-control'
+              />
+            </label>
+          </div>
+          <div className="d-flex justify-content-center">
+            <input type="submit" value="Login" />
+          </div>
+          <Link to={'/'}>Don't have an account?</Link>
+        </form>
+      </div>
+    </div>
+  </div>
   </>)
 }

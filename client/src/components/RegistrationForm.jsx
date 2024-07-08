@@ -67,90 +67,118 @@ export const RegistrationForm = () => {
   }
   
   return (<>
-  <h1>Pizza's Pete</h1>
-    <form onSubmit={submitHandler}>
-      <label>
-        First Name:
-        <input 
-          type="text"
-          name='firstName'
-          value={user.firstName}
-          onChange={changeHandler}
-        />
-        {errors.firstName && <p>{errors.firstName}</p>}
-      </label>
-      <label>
-        Last Name:
-        <input 
-          type="text"
-          name='lastName'
-          value={user.lastName}
-          onChange={changeHandler}
-        />
-        {errors.lastName && <p>{errors.lastName}</p>}
-      </label>
-      <label>
-        Email:
-        <input 
-          type="email"
-          name='email'
-          value={user.email}
-          onChange={changeHandler}
-        />
-        {errors.email && <p>{errors.email}</p>}
-      </label>
-      <label>
-        Address:
-        <input 
-          type="text"
-          name='address'
-          value={user.address}
-          onChange={changeHandler}
-        />
-        {errors.address && <p>{errors.address}</p>}
-      </label>
-      <label>
-        City:
-        <input 
-          type="text"
-          name='city'
-          value={user.city}
-          onChange={changeHandler}
-        />
-        {errors.city && <p>{errors.city}</p>}
-      </label>
-      <label>
-        State:
-        <input 
-          type="text"
-          name='state'
-          value={user.state}
-          onChange={changeHandler}
-        />
-        {errors.state && <p>{errors.state}</p>}
-      </label>
-      <label>
-        Password:
-        <input 
-          type="password"
-          name='password'
-          value={user.password}
-          onChange={changeHandler}
-        />
-        {errors.password && <p>{errors.password}</p>}
-      </label>
-      <label>
-        Confirm Password:
-        <input 
-          type="password"
-          name='confirmPassword'
-          value={user.confirmPassword}
-          onChange={changeHandler}
-        />
-        {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-      </label>
-      <input type="submit" value="Register" />
-      <Link to={"/login"}>Already have an account?</Link>
-    </form>
+  <div className="container">
+    <h1 className='text-center text-primary'>Pizza's Pete</h1>
+      <div className="card">
+        <div className="card-body">
+          <h2 className='text-center text-danger'>Register</h2>
+          <form onSubmit={submitHandler}>
+            <div className="form-group m-3">
+              <label className='form-label m-3'>
+                First Name:
+                <input
+                  type="text"
+                  name='firstName'
+                  value={user.firstName}
+                  onChange={changeHandler}
+                  className='form-control'
+                />
+                {errors.firstName && <p>{errors.firstName}</p>}
+              </label>
+              <label className='form-label'>
+                Last Name:
+                <input
+                  type="text"
+                  name='lastName'
+                  value={user.lastName}
+                  onChange={changeHandler}
+                  className='form-control'
+                />
+                {errors.lastName && <p>{errors.lastName}</p>}
+                </label>
+            </div>
+              
+            <div className="form-group">
+              <label className='form-label'>
+                Email:
+                <input
+                  type="email"
+                  name='email'
+                  value={user.email}
+                  onChange={changeHandler}
+                  className='form-control'
+                />
+                {errors.email && <p>{errors.email}</p>}
+              </label>
+            </div>
+            <div className="form-group">
+              <label className='form-label'>
+                Address:
+                <input
+                  type="text"
+                  name='address'
+                  value={user.address}
+                  onChange={changeHandler}
+                  className='form-control'
+                />
+                {errors.address && <p>{errors.address}</p>}
+              </label>
+            </div>
+            <div className="form-group">
+              <label className='form-label m-3'>
+                City:
+                <input
+                  type="text"
+                  name='city'
+                  value={user.city}
+                  onChange={changeHandler}
+                  className='form-control'
+                />
+                {errors.city && <p>{errors.city}</p>}
+              </label>
+              <label className='form-label'>
+                State:
+                <input
+                  type="text"
+                  name='state'
+                  value={user.state}
+                  onChange={changeHandler}
+                  className='form-control'
+                />
+                {errors.state && <p>{errors.state}</p>}
+              </label>
+            </div>
+            <div className="form-group">
+              <label className='form-label m-3'>
+                Password:
+                <input
+                  type="password"
+                  name='password'
+                  value={user.password}
+                  onChange={changeHandler}
+                  className='form-control'
+                />
+                {errors.password && <p>{errors.password}</p>}
+              </label>
+              <label className='form-label'>
+                Confirm Password:
+                <input
+                  type="password"
+                  name='confirmPassword'
+                  value={user.confirmPassword}
+                  onChange={changeHandler}
+                  className='form-control'
+                />
+                {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+              </label>
+            </div>
+            <div className="d-flex justify-content-center">
+              <input type="submit" value="Sign up" />
+            </div>
+            <Link to={"/login"}>Already have an account?</Link>
+          </form>
+        </div>
+      </div>
+  </div>
   </>)
 }
