@@ -45,6 +45,7 @@ export const findUserById = async (userData) =>{
     }catch(error) {throw error}
 }
 
+
 export const getALLUsersPosts = async (userData) =>{
 
     // eslint-disable-next-line no-useless-catch
