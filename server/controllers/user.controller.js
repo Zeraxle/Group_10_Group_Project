@@ -42,20 +42,20 @@ export const findUserById = async (req,res,next ) =>{
 export const logUserIn = async (req,res,next ) =>{
 
     try{
-        const { username, password } = req.body
+        const { email, password } = req.body
         // SETTING THE VAR ID EQUAL TO PARAMETER WE ENTER INTO OUR ROUTE 
-        const isCorrectUsername = await User.findOne({
-            where :{username : username}
+        const isCorrectemail = await User.findOne({
+            where :{email : email}
             })
-        if (!isCorrectUsername){
+        if (!isCorrectemail){
             return res.status(404).json({ errormsg: 'User not found' });
         }
-        const isCorrectPassword = isCorrectUsername.authenticate(password)
+        const isCorrectPassword = isCorrectemail.authenticate(password)
         if (!isCorrectPassword){
             return res.status(404).json({ errormsg: 'pass not found' });
         }
         
-        res.status(200).json(isCorrectUsername)
+        res.status(200).json(isCorrectemail)
     }catch (error){
         res.status(400).json(error)
     }
