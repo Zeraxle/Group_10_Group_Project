@@ -63,15 +63,12 @@ export const RegistrationForm = () => {
     if(!readyToSubmit()){
       alert("Please fill out form correctly. Thank you.")
       return
-    }else{
-
     }
-
   }
   
   return (<>
   <h1>Pizza's Pete</h1>
-    <form>
+    <form onSubmit={submitHandler}>
       <label>
         First Name:
         <input 
@@ -153,7 +150,7 @@ export const RegistrationForm = () => {
         {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
       </label>
       <input type="submit" value="Register" />
+      <Link to={"/login"}>Already have an account?</Link>
     </form>
-    <Link to={"/login"}>Already have an account?</Link>
   </>)
 }
