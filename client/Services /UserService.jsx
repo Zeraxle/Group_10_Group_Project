@@ -5,8 +5,9 @@ import axios from "axios"
 const USER_INSTANCE = axios.create({
     baseURL : "http://localhost:8000/user"
 })
-// Stop
+// here
 // CREATE
+
 export const createUser = async userData =>{
 
 
