@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import Nav from './Nav'
 
 export const RegistrationForm = () => {
   const navigate = useNavigate()
@@ -67,8 +68,10 @@ export const RegistrationForm = () => {
   }
   
   return (<>
+  
   <div className="container">
     <h1 className='text-center text-primary'>Pizza's Pete</h1>
+    <Nav/>
       <div className="card">
         <div className="card-body">
           <h2 className='text-center text-danger'>Register</h2>
