@@ -8,7 +8,7 @@ userRouter.route("/")
     .get(findAllUsers)
     .post(createUser)
     
-userRouter.route("/username")
+userRouter.route("/login")
     .post(logUserIn)
 
 userRouter.route("/userPosts/:userId")
