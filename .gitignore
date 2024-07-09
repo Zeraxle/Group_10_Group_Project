@@ -1,2 +1,6 @@
 node_modules
-config
+
+echo "/config/sequelize.config.js" >> .gitignore
+
+
+git rm --cached /config/sequelize.config.js
