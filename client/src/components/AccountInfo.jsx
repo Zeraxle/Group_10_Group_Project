@@ -1,6 +1,11 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {useNavigate, Link} from 'react-router-dom'
+import Nav from './Nav'
+
+
 export const AccountInfo = () => {
+
+
 
     const navigate = useNavigate()
     const [user, setUser] = useState({
@@ -61,6 +66,7 @@ export const AccountInfo = () => {
     
     <div className="container">
     <h1 className='text-center text-primary'>Pizza's Pete</h1>
+        <Nav/>
         <div className="account-box">
             <div className="card-body">
                 <h2 className='text-center text-danger'>Account Info</h2>
