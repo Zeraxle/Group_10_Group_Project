@@ -39,6 +39,57 @@ export const PizzaForm = () => {
             <option value="9">9</option>
             <option value="10">10</option>
           </select>
+          <section className="toppings">
+              <p>Choose Your Toppings</p>
+              <label>
+                Pepperoni
+                <input type="checkbox" name="pepperoni"
+                
+                />
+              </label>
+              <label>
+                Sausage
+                <input type="checkbox" name="sausage"
+                
+                />
+              </label>
+              <label>
+                Ham
+                <input type="checkbox" name="ham"
+                
+                />
+              </label>
+              <label>
+                Four Cheese
+                <input type="checkbox" name="four_cheese"
+                
+                />
+              </label>
+              <label>
+                Green Peppers
+                <input type="checkbox" name="green_peppers"
+                
+                />
+              </label>
+              <label>
+                Grilled Chicken
+                <input type="checkbox" name="grilled_chicken"
+                
+                />
+              </label>
+              <label>
+                Mushrooms
+                <input type="checkbox" name="mushrooms"
+                
+                />
+              </label>
+              <label>
+                Onions
+                <input type="checkbox" name="onions"
+                
+                />
+              </label>
+          </section>
         </div>
       </form>
     </div>

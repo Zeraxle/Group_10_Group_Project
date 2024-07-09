@@ -10,10 +10,12 @@ const Nav = () => {
         <header>
             <nav className="nav">
                 <h3>Pizza Pete's</h3>
-                <button><Link to={'/'}>Home</Link></button>
-                <button><Link to={'/pizzaform'}>Order</Link></button>
-                <button><Link to={'/user/account'}>Account</Link></button>
-                <button><Link to={'/'}>Logout</Link></button>
+                <div>
+                    <button><Link to={'/'}>Home</Link></button>
+                    <button><Link to={'/pizzaform'}>Order</Link></button>
+                    <button><Link to={'/user/account'}>Account</Link></button>
+                    <button><Link to={'/'}>Logout</Link></button>
+                </div>
             </nav>
         </header>
     </>)
