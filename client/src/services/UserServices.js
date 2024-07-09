@@ -65,6 +65,15 @@ export const logOutUser = async (userData) =>{
     }catch(error) {throw error}
 }
 
+export const updateUser = async (userData) =>{
+
+    // eslint-disable-next-line no-useless-catch
+    try {
+        const  res = await USER_INSTANCE.post(`/update/${userData._id}`, userData)
+        return res.data
+    }catch(error) {throw error}
+}
+
 
 
 
