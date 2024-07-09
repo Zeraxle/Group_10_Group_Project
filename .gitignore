@@ -1,3 +1,13 @@
 node_modules
 /config/sequelize.config.js
 
+main.js
+
+echo ".env" >> .gitignore
+
+git rm --cached .env
+
+
+echo "/config/sequelize.config.js" >> .gitignore
+
+git rm --cached /config/sequelize.config.js
