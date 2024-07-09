@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import {useNavigate, useParams} from 'react-router-dom'
 import Nav from './Nav'
-import { findUserById, updateUser } from '../services/UserServices'
+import { findUserById, updateById } from '../services/UserServices'
 
 
 export const AccountInfo = () => {
@@ -66,7 +66,8 @@ export const AccountInfo = () => {
         alert("Please fill out form correctly. Thank you.")
         return
     }
-    updateUser(user)
+    updateById(user)
+    console.log(user.id)
       .then(res => console.log(res))
       .catch(err => console.log(err))
     setUser({

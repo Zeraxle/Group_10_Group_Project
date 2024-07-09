@@ -8,7 +8,7 @@ const Nav = () => {
     const {id} = useParams()
     const Logout = () => {
         if (id){
-            logOutUser()
+            logOutUser(id)
                 .then(res => navigate('/'))
                 .catch(err => console.log(err))
         }
