@@ -13,8 +13,23 @@ export const AccountInfo = () => {
     //     .catch(error => console.log(error))
     // }, [])
     const navigate = useNavigate()
-    const [user, setUser] = useState({})
-    const [errors, setErrors] = useState({})
+    const {id} = useParams()
+    const [user, setUser] = useState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      address: '',
+      city: '',
+      state: ''
+    })
+    const [errors, setErrors] = useState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      address: '',
+      city: '',
+      state: ''
+    })
     
     const changeHandler = e => {
     const {name, value} = e.target
@@ -50,6 +65,9 @@ export const AccountInfo = () => {
         alert("Please fill out form correctly. Thank you.")
         return
     }
+    updateUser(user)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
     
     return (<>
