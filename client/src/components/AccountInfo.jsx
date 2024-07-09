@@ -14,8 +14,22 @@ export const AccountInfo = () => {
     // }, [])
     const navigate = useNavigate()
     const {id} = useParams()
-    const [user, setUser] = useState({})
-    const [errors, setErrors] = useState({})
+    const [user, setUser] = useState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      address: '',
+      city: '',
+      state: ''
+    })
+    const [errors, setErrors] = useState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      address: '',
+      city: '',
+      state: ''
+    })
     
     const changeHandler = e => {
     const {name, value} = e.target
@@ -55,6 +69,14 @@ export const AccountInfo = () => {
     updateUser(user)
       .then(res => console.log(res))
       .catch(err => console.log(err))
+    setUser({
+      firstName: '',
+      lastName: '',
+      email: '',
+      address: '',
+      city: '',
+      state: ''
+    })
     }
     
     return (<>
