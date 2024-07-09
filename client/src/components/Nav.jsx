@@ -8,7 +8,7 @@ const Nav = () => {
     const {id} = useParams()
     const Logout = () => {
         if (id){
-            logOutUser()
+            logOutUser(id)
                 .then(res => navigate('/'))
                 .catch(err => console.log(err))
         }
@@ -22,7 +22,7 @@ const Nav = () => {
                 <div>
                     <button><Link to={'/home'}>Home</Link></button>
                     <button><Link to={'/pizzaform'}>Order</Link></button>
-                    <button><Link to={'/user/account'}>Account</Link></button>
+                    <button><Link to={`/account/${id}`}>Account</Link></button>
                     <button onClick={Logout}>Logout</button>
                 </div>
             </nav>

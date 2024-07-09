@@ -6,7 +6,8 @@ export const PizzaForm = () => {
     method: '',
     size: '',
     crust: '',
-
+    quantity: 0,
+    toppings: []
   })
   
   

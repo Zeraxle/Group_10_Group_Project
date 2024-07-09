@@ -7,11 +7,7 @@ import { findUserById } from '../services/UserServices'
 export const AccountInfo = () => {
 
     
-    // useEffect(() => { 
-    //     findUserById(id)
-    //     .then(setUser(res))
-    //     .catch(error => console.log(error))
-    // }, [])
+    
     const navigate = useNavigate()
     const {id} = useParams()
     const [user, setUser] = useState({
@@ -30,7 +26,13 @@ export const AccountInfo = () => {
       city: '',
       state: ''
     })
-    
+
+    useEffect(() => { 
+        findUserById(id)
+        .then(res => console.log(res))
+        .catch(error => console.log(error))
+    }, [])
+
     const changeHandler = e => {
     const {name, value} = e.target
     setUser({...user, [name]: value})

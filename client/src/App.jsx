@@ -15,7 +15,7 @@ function App() {
     <Route path='/login' element={<LoginForm/>}/>
     <Route path='/home' element={<QuickOptions/>}/>
     <Route path='/pizzaform' element={<PizzaForm/>}/>
-    <Route path='/:id/account' element={<AccountInfo/>}/>
+    <Route path='/account/:id' element={<AccountInfo/>}/>
     <Route path='/logout/:id' element={<Nav/>}/>
   </Routes>
   </>)
