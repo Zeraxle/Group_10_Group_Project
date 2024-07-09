@@ -57,6 +57,11 @@ button:focus-visible {
   }
 } */
 
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
 .account-box {
   display: flex;
   gap: 10%;
@@ -87,4 +92,15 @@ button {
 
 a {
   text-decoration: none;
+}
+
+section {
+  border: 1px solid darkgray;
+    width: 480px;
+    margin-top: 10px;
+}
+
+
+section label input {
+  margin: 5px;
 }

@@ -1,30 +1,20 @@
 import {useState, useEffect} from 'react'
-import {useNavigate, Link} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 import Nav from './Nav'
+import { findUserById } from '../services/UserServices'
 
 
 export const AccountInfo = () => {
 
-
-
+    // let {id} = useParams()
+    // useEffect(() => { 
+    //     findUserById(id)
+    //     .then(setUser(res))
+    //     .catch(error => console.log(error))
+    // }, [])
     const navigate = useNavigate()
-    const [user, setUser] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    address: '',
-    city: '',
-    state: ''
-    })
-
-    const [errors, setErrors] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    address: '',
-    city: '',
-    state: ''
-    })
+    const [user, setUser] = useState({})
+    const [errors, setErrors] = useState({})
     
     const changeHandler = e => {
     const {name, value} = e.target
