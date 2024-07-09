@@ -9,14 +9,14 @@ export const QuickOptions = () => {
       <h1>Quick Options</h1>
       <div className='d-flex justify-content-evenly'>
         <div>
-          <p>Adding</p>
-          <Link><button>New Order</button></Link>
+          
+          <Link to={'/pizzaform'}><button>New Order</button></Link>
         </div>
         <div>
-          <Link><button>Re-Order My Fav</button></Link>
+          <Link to={'/pizzaform'}><button>Re-Order My Fav</button></Link>
         </div>
         <div>
-          <Link><button>Surprise Me</button></Link>
+          <Link to={'/pizzaform'}><button>Surprise Me</button></Link>
         </div>
       </div>
     </div>
