@@ -59,11 +59,17 @@ button:focus-visible {
 
 .account-box {
   display: flex;
+  gap: 10%;
+  justify-content: space-between;
+  margin-top: 4%;
 }
 
 
 .past-orders-section{
-  
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+  margin-right: 14%;
 }
 
 button {
