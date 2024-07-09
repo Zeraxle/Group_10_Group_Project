@@ -5,7 +5,6 @@ export const PizzaForm = () => {
   return (<>
     <div className="container">
       <Nav/>
-      <h1>Craft-A-Pizza</h1>
       <form>
         <div className="form-group">
           <label htmlFor='methods' className='form-label'>Method:</label>
