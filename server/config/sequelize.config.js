@@ -4,7 +4,7 @@ import {Sequelize} from "sequelize"
 
 
 export const sequilize = new Sequelize(
-    'PizzaPeteDB',// database,
+    'pizzapetedb',// database,
     'root', // db User
     'root',// db password 
     {
