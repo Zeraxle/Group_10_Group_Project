@@ -4,8 +4,8 @@ import {useState, useEffect} from 'react'
 
 const Nav = () => {
 
-
-
+    const {id} = useParams()
+    
     return(<>
         <header>
             <nav className="nav">

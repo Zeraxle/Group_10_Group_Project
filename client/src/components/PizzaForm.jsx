@@ -43,52 +43,69 @@ export const PizzaForm = () => {
               <p>Choose Your Toppings</p>
               <label>
                 Pepperoni
-                <input type="checkbox" name="pepperoni"
+                <input 
+                    type="checkbox" 
+                    name="pepperoni"
                 
                 />
               </label>
               <label>
                 Sausage
-                <input type="checkbox" name="sausage"
+                <input 
+                    type="checkbox" 
+                    name="sausage"
                 
                 />
               </label>
               <label>
                 Ham
-                <input type="checkbox" name="ham"
+                <input 
+                    type="checkbox"   
+                    name="ham"
                 
                 />
               </label>
               <label>
                 Four Cheese
-                <input type="checkbox" name="four_cheese"
+                <input 
+                    type="checkbox" 
+                    name="four_cheese"
                 
                 />
               </label>
               <label>
                 Green Peppers
-                <input type="checkbox" name="green_peppers"
+                <input 
+                    type="checkbox" 
+                    name="green_peppers"
                 
                 />
               </label>
               <label>
                 Grilled Chicken
-                <input type="checkbox" name="grilled_chicken"
+                <input 
+                    type="checkbox" 
+                    name="grilled_chicken"
                 
                 />
               </label>
               <label>
                 Mushrooms
-                <input type="checkbox" name="mushrooms"
+                <input 
+                    type="checkbox" 
+                    name="mushrooms"
                 
                 />
               </label>
               <label>
                 Onions
-                <input type="checkbox" name="onions"
+                <input 
+                    type="checkbox" 
+                    name="onions"
                 
                 />
               </label>
+              <p>THERE WILL NEVER BE PINEAPPLE!!!</p>
           </section>
         </div>
       </form>
