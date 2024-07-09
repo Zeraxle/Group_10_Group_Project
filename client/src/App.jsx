@@ -4,6 +4,7 @@ import { RegistrationForm } from './components/RegistrationForm'
 import { LoginForm } from './components/LoginForm'
 import { QuickOptions } from './components/QuickOptions'
 import { PizzaForm } from './components/PizzaForm'
+import { AccountInfo } from './components/AccountInfo'
 
 function App() {
 
