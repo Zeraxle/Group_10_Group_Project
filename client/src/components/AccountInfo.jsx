@@ -6,7 +6,7 @@ import { findUserById } from '../services/UserServices'
 
 export const AccountInfo = () => {
 
-    let {id} = useParams()
+    
     // useEffect(() => { 
     //     findUserById(id)
     //     .then(setUser(res))
