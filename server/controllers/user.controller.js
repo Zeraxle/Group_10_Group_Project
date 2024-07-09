@@ -1,4 +1,5 @@
 
+import { Where } from "sequelize/lib/utils";
 import User from "../models/user.model.js";
 
 
@@ -89,11 +90,34 @@ export const getALLUsersPosts = async (req, res, next) =>{
 export const logOutUser = async (req, res) => {
     try {
         const {id} = req.params
-        const logUserOut = await User.findByPk(id)
+        const user = await User.findByPk(id)
         res.clearCookie("userToken")
         return res.status(200).json({message: "Logged out successfully."})
     }
     catch (err) {
         return res.status(500).json(err)
+    }
+}
+
+export const updateById = async(req,res,next)=>{
+    
+    try{
+        const {id} = req.params
+        const userToUpdate = req.body
+        const foundUser = await User.findByPk(id)
+        if (!foundUser){
+            return res.status(404).json({ message: 'User not found' });
+        }
+        foundUser.firstName = userToUpdate.firstName
+        foundUser.lastName = userToUpdate.lastName
+        foundUser.email = userToUpdate.email
+        foundUser.address = userToUpdate.address
+        foundUser.city = userToUpdate.city
+        foundUser.state = userToUpdate.state
+        await foundUser.save();
+        res.status(200).json(foundUser)
+    }catch (error){
+        console.error(error);
+        res.status(400).json(error)
     }
 }

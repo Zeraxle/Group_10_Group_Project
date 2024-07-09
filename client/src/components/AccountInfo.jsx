@@ -29,8 +29,7 @@ export const AccountInfo = () => {
         email : value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? true : "Please enter a valid email.",
         address: value => value.length >= 6 && value.length <= 50 ? true : "Address must be at least six characters and less than fifty characters long.",
         city: value => value.length >= 4 && value.length <= 50 ? true : "City must be at least four characters and less than fifty characters long.",
-        state: value => value.length >= 4 && value.length <= 50 ? true : "State must be at least four characters and less than fifty characters long.",
-        password : value => value.length >= 8 && value.length <= 50 ? true : "Password must be at least eight characters and less than fifty characters long.",
+        state: value => value.length >= 4 && value.length <= 50 ? true : "State must be at least four characters and less than fifty characters long."
     }
 }
 

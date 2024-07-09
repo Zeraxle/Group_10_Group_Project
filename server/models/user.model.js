@@ -71,10 +71,16 @@ const User = sequilize.define('user',{
         }
     },
 
+    createdAt: {
+        type: DataTypes.DATE
+    },
+    updatedAt: {
+        type: DataTypes.DATE
+    }
+    }, {
+      timestamps: true // <--- This enables createdAt and updatedAt fields
+    })
 
-    // timestamps: true
-
-})
     const options ={
         field: 'password', // secret field to hash, default: 'password'
         rounds: 12, // used to generate bcrypt salt, default: 12
