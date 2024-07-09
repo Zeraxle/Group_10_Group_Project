@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import {useNavigate, useParams} from 'react-router-dom'
 import Nav from './Nav'
-import { findUserById } from '../services/UserServices'
+import { findUserById, updateUser } from '../services/UserServices'
 
 
 export const AccountInfo = () => {
@@ -13,6 +13,7 @@ export const AccountInfo = () => {
     //     .catch(error => console.log(error))
     // }, [])
     const navigate = useNavigate()
+    const {id} = useParams()
     const [user, setUser] = useState({})
     const [errors, setErrors] = useState({})
     
@@ -31,6 +32,8 @@ export const AccountInfo = () => {
         city: value => value.length >= 4 && value.length <= 50 ? true : "City must be at least four characters and less than fifty characters long.",
         state: value => value.length >= 4 && value.length <= 50 ? true : "State must be at least four characters and less than fifty characters long."
     }
+    if ( name == "password" ){ setErrors( prev => ( {...prev, confirmPassword : validations["confirmPassword"](value)} ) ) }
+      setErrors( prev => ( {...prev, [name] : validations[name](value)} ) )
 }
 
     const readyToSubmit = () => {
@@ -49,6 +52,9 @@ export const AccountInfo = () => {
         alert("Please fill out form correctly. Thank you.")
         return
     }
+    updateUser(user)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
     }
     
     return (<>
