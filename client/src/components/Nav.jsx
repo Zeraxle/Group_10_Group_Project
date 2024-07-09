@@ -1,12 +1,12 @@
 import { Link, useNavigate } from "react-router-dom"
 import {useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
-import { logUserIn } from "../services/UserServices"
+import { logUserIn, logOutUser } from "../services/UserServices"
 
 const Nav = () => {
     const navigate = useNavigate()
     const {id} = useParams()
-    const logOutUser = () => {
+    const Logout = () => {
         if (id){
             logOutUser(id)
                 .then(res => navigate('/'))
@@ -23,7 +23,7 @@ const Nav = () => {
                     <button><Link to={'/'}>Home</Link></button>
                     <button><Link to={'/pizzaform'}>Order</Link></button>
                     <button><Link to={'/user/account'}>Account</Link></button>
-                    <button onClick={logOutUser}>Logout</button>
+                    <button onClick={Logout}>Logout</button>
                 </div>
             </nav>
         </header>

@@ -60,7 +60,7 @@ export const logOutUser = async (id) =>{
 
     // eslint-disable-next-line no-useless-catch
     try {
-        const  res = await USER_INSTANCE.get(`/logout/${id}`)
+        const  res = await USER_INSTANCE.post(`/logout/${id}`)
         return res.data
     }catch(error) {throw error}
 }
