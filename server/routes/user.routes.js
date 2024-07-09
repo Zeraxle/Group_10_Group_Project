@@ -21,7 +21,7 @@ userRouter.route("/update/:id")
     .post(updateById)
 
 
-userRouter.route("logout/:id")
+userRouter.route("/logout/:id")
     .post(logOutUser)
     
 export default userRouter
