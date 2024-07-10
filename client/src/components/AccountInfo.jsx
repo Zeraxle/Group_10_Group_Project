@@ -19,12 +19,12 @@ export const AccountInfo = (props) => {
     }, [])
     const navigate = useNavigate()
     const [errors, setErrors] = useState({
-      firstName: '',
-      lastName: '',
-      email: '',
-      address: '',
-      city: '',
-      state: ''
+        firstName: '',
+        lastName: '',
+        email: '',
+        address: '',
+        city: '',
+        state: ''
     })
 
     useEffect(() => { 
