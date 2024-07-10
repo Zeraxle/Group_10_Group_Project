@@ -5,8 +5,9 @@ import { findUserById, updateById} from '../services/UserServices'
 
 
 export const AccountInfo = ({loggedInUser}) => {
-    const {id} = useParams()
+    // const {id} = useParams()
     const [user, setUser] = useState({})
+    const [pizzaData, setPizzaData] = useState([])
     // const navigate = useNavigate()
     const [errors, setErrors] = useState({
         firstName: '',
@@ -17,8 +18,17 @@ export const AccountInfo = ({loggedInUser}) => {
         state: ''
     })
 
+    useEffect(()=>{
+
+    })
+
+    const updatePizzaBoolean = e => {
+        const {name, value} = e. target
+            let checkedValue = e.target.checked
+    }
+
     useEffect(() => { 
-        console.log('user', loggedInUser)
+        // console.log('user', loggedInUser)
         findUserById(loggedInUser.id)
         .then(res => {
             setUser(res)

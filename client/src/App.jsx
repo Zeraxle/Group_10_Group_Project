@@ -10,6 +10,7 @@ import Nav from './components/Nav'
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
+  const [loggedInUserPizza, setLoggedInUserPizza] = useState({})
   return (<>
   <Nav loggedInUser={loggedInUser}/>
   <Routes>
@@ -17,7 +18,7 @@ function App() {
     <Route path='/login' element={<LoginForm setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}/>}/>
     <Route path='/home' element={<QuickOptions loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
     <Route path='/pizzaform' element={<PizzaForm loggedInUser={loggedInUser}/>}/>
-    <Route path='/account' element={<AccountInfo setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}/>}/>
+    <Route path='/account' element={<AccountInfo setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} setLoggedInUserPizza={setLoggedInUserPizza}/>}/>
     {/* <Route path='/logout' element={<Nav loggedInUser={loggedInUser}/>}/> */}
   </Routes>
   </>)
