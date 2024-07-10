@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import Nav from './Nav'
 import { createUser } from '../services/UserServices'
 
 export const RegistrationForm = (props) => {
   
-  const {setAllUsers, setLoggedInUser} = props
+  const { setLoggedInUser} = props
 
   const navigate = useNavigate()
   const [user, setUser] = useState({
