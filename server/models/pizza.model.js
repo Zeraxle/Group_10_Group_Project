@@ -45,6 +45,20 @@ const Pizza = sequilize.define('pizza', {
             max : 50
         }
     },
+    favorite:{
+        type : DataTypes.BOOLEAN,
+        allowNull : false,
+        validate :{
+            len:[2,6]
+        }
+    },
+    comments :{
+        type: DataTypes.STRING,
+        allowNull : true,
+        validate :{
+            len : [0,255]
+        }
+    }, 
 
     createdAt : {
         type: DataTypes.TIME
