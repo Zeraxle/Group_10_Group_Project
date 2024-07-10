@@ -4,7 +4,6 @@ import Nav from './Nav'
 import { findUserById, updateById} from '../services/UserServices'
 
 
-<<<<<<< Updated upstream
 export const AccountInfo = (props) => {
 
 
@@ -19,21 +18,6 @@ export const AccountInfo = (props) => {
         .catch(error => console.log(error))
     }, [])
     const navigate = useNavigate()
-=======
-export const AccountInfo = ({setLoggedInUser}) => {
-    
-    const navigate = useNavigate()
-    const {id} = useParams()
-    const [user, setUser] = useState({
-      id: '',
-      firstName: '',
-      lastName: '',
-      email: '',
-      address: '',
-      city: '',
-      state: ''
-    })
->>>>>>> Stashed changes
     const [errors, setErrors] = useState({
       firstName: '',
       lastName: '',
