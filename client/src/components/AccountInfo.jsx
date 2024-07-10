@@ -18,7 +18,7 @@ export const AccountInfo = ({loggedInUser}) => {
     })
 
     useEffect(() => { 
-        console.log('user', loggedInUser)
+        // console.log('user', loggedInUser)
         findUserById(loggedInUser.id)
         .then(res => {
             setUser(res)
