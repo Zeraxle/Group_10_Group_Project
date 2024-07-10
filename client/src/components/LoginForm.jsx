@@ -4,7 +4,7 @@ import { logUserIn } from '../services/UserServices'
 
 export const LoginForm = (props) => {
 
-  const {setLoggedInUser} = props
+  const {setLoggedInUser, loggedInUser} = props
   const navigate = useNavigate()
   const [user, setUser] = useState({
     email: '',
@@ -46,9 +46,9 @@ export const LoginForm = (props) => {
       return
     }
     logUserIn(user)
-      .then(res => setLoggedInUser(res.id))
+      .then(res => setLoggedInUser(res))
       .then(res => {navigate('/home')})
-      // .then(res => console.log(res))
+      // .then(res => console.log(loggedInUser))
       .catch(err => console.log(err))
   }
 

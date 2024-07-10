@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import {useNavigate, useParams} from 'react-router-dom'
 import Nav from './Nav'
-import { findUserById, updateUser } from '../services/UserServices'
+import { findUserById, updateById} from '../services/UserServices'
 
 
 export const AccountInfo = (props) => {
@@ -9,9 +9,10 @@ export const AccountInfo = (props) => {
 
     const {loggedInUser} = props
     // const {loggedInUser} = useParams()
+    const {id} = useParams()
     const [user, setUser] = useState({})
     useEffect(() => { 
-        findUserById(loggedInUser)
+        findUserById(loggedInUser.id)
             .then(res => console.log(res))
         // .then(res => setUser(res))
         .catch(error => console.log(error))
@@ -66,7 +67,7 @@ export const AccountInfo = (props) => {
         alert("Please fill out form correctly. Thank you.")
         return
     }
-    updateUser(user)
+    updateById(id)
       .then(res => console.log(res))
       .catch(err => console.log(err))
     setUser({
