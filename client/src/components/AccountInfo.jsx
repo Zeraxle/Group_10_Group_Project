@@ -19,7 +19,7 @@ export const AccountInfo = ({loggedInUser}) => {
     })
 
     useEffect(()=>{
-
+        
     })
 
     const updatePizzaBoolean = e => {
