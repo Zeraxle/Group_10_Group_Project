@@ -7,8 +7,10 @@ import { QuickOptions } from './components/QuickOptions'
 import { PizzaForm } from './components/PizzaForm'
 import { AccountInfo } from './components/AccountInfo'
 import Nav from './components/Nav'
+import { useState } from 'react'
 
 function App() {
+<<<<<<< Updated upstream
 
     const [loggedInUser, setLoggedInUser] = useState({})
     
@@ -21,6 +23,17 @@ function App() {
     <Route path='/pizzaform' element={<PizzaForm loggedInUser={loggedInUser}/>}/>
     <Route path='/account/:id' element={<AccountInfo loggedInUser={loggedInUser}/>}/>
     <Route path='/logout/:id' element={<Nav loggedInUser={loggedInUser}/>}/>
+=======
+  const [loggedInUser, setLoggedInUser] = useState({})
+  return (<>
+  <Routes>
+    <Route path='/' element={<RegistrationForm/>}/>
+    <Route path='/login' element={<LoginForm/>}/>
+    <Route path='/home' element={<QuickOptions/>}/>
+    <Route path='/pizzaform' element={<PizzaForm/>}/>
+    <Route path='/account/:id' element={<AccountInfo setLoggedInUser={setLoggedInUser} />}/>
+    <Route path='/logout/:id' element={<Nav/>}/>
+>>>>>>> Stashed changes
   </Routes>
   </>)
 }
