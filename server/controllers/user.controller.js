@@ -122,3 +122,12 @@ export const updateById = async(req,res,next)=>{
         res.status(400).json(error)
     }
 }
+
+
+// export const findUsersFavPizza = async (res, req, next ) =>{
+//     try{
+
+//     }catch(error)
+//     console.error(error);
+//     res.status(400).json(error)
+// }

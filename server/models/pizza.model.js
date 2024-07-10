@@ -29,7 +29,14 @@ const Pizza = sequilize.define('pizza', {
             len: [1,5]
         }
     },
-
+    toppings : {
+        type: Sequelize.ARRAY(Sequelize.TEXT),
+        defaultValue: [],
+        allowNull : true,
+        validate : {
+            len : [0,255]
+        }
+    }, 
     crust:{
         type : DataTypes.STRING,
         allowNull: false,
