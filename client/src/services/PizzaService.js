@@ -13,5 +13,4 @@ export const createPizza = async PizzaData  =>{
         const res = PIZZA_INSTANCE.post("/", PizzaData)
         return res.data
     }catch(error){throw error}
-
 }
