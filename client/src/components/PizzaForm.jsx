@@ -13,7 +13,7 @@ export const PizzaForm = () => {
   
   return (<>
     <div className="container">
-      <Nav/>
+      {/* <Nav loggedInUser={loggedInUser}/> */}
       <form>
         <div className="form-group">
           <label htmlFor='method' className='form-label'>Method:</label>

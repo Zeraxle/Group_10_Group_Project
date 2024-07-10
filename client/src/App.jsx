@@ -9,19 +9,16 @@ import { AccountInfo } from './components/AccountInfo'
 import Nav from './components/Nav'
 
 function App() {
-
-    const [allUsers, setAllUsers] = useState([])
-    const [loggedInUser, setLoggedInUser] = useState()
-    
-
+  const [loggedInUser, setLoggedInUser] = useState({})
   return (<>
+  <Nav loggedInUser={loggedInUser}/>
   <Routes>
-    <Route path='/' element={<RegistrationForm setLoggedInUser={setLoggedInUser} setAllUsers={setAllUsers}/>}/>
-    <Route path='/login' element={<LoginForm setLoggedInUser={setLoggedInUser}/>}/>
-    <Route path='/home' element={<QuickOptions loggedInUser={loggedInUser}/>}/>
+    <Route path='/' element={<RegistrationForm/>}/>
+    <Route path='/login' element={<LoginForm setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}/>}/>
+    <Route path='/home' element={<QuickOptions loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
     <Route path='/pizzaform' element={<PizzaForm loggedInUser={loggedInUser}/>}/>
-    <Route path='/account/:id' element={<AccountInfo loggedInUser={loggedInUser}/>}/>
-    <Route path='/logout/:id' element={<Nav loggedInUser={loggedInUser}/>}/>
+    <Route path='/account' element={<AccountInfo setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}/>}/>
+    {/* <Route path='/logout' element={<Nav loggedInUser={loggedInUser}/>}/> */}
   </Routes>
   </>)
 }
