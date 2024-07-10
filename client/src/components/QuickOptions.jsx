@@ -1,14 +1,13 @@
 import React from 'react'
 import Nav from './Nav'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export const QuickOptions = ({loggedInUser}) => {
-
-    console.log(loggedInUser)
+    const {id} = useParams()
 
   return (<>
     <div className='container'>
-      <Nav/>
+      {/* <Nav id={id}/> */}
       <h1>Quick Options</h1>
       <div className='d-flex justify-content-evenly'>
         <div>

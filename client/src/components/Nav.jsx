@@ -21,9 +21,9 @@ const Nav = ({loggedInUser}) => {
             <nav className="nav">
                 <h3>Pizza Pete's</h3>
                 <div>
-                    <button><Link to={'/home'}>Home</Link></button>
+                    <button><Link to={`/home`}>Home</Link></button>
                     <button><Link to={'/pizzaform'}>Order</Link></button>
-                    <button><Link to={`/account/${loggedInUser.id}`}>Account</Link></button>
+                    <button><Link to={`/account`}>Account</Link></button>
                     <button onClick={Logout}>Logout</button>
                 </div>
             </nav>

@@ -4,20 +4,10 @@ import Nav from './Nav'
 import { findUserById, updateById} from '../services/UserServices'
 
 
-export const AccountInfo = (props) => {
-
-
-    const {loggedInUser} = props
-    // const {loggedInUser} = useParams()
+export const AccountInfo = ({loggedInUser}) => {
     const {id} = useParams()
     const [user, setUser] = useState({})
-    useEffect(() => { 
-        findUserById(loggedInUser.id)
-            .then(res => console.log(res))
-        // .then(res => setUser(res))
-        .catch(error => console.log(error))
-    }, [])
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const [errors, setErrors] = useState({
         firstName: '',
         lastName: '',
@@ -28,8 +18,19 @@ export const AccountInfo = (props) => {
     })
 
     useEffect(() => { 
-        findUserById(id)
-        .then(res => console.log(res))
+        console.log('user', loggedInUser)
+        findUserById(loggedInUser.id)
+        .then(res => {
+            setUser(res)
+            setErrors({
+                firstName: true,
+                lastName: true,
+                email: true,
+                address: true,
+                city: true,
+                state: true
+            })
+        })
         .catch(error => console.log(error))
     }, [])
 
@@ -49,6 +50,7 @@ export const AccountInfo = (props) => {
         state: value => value.length >= 4 && value.length <= 50 ? true : "State must be at least four characters and less than fifty characters long.",
         password : value => value.length >= 8 && value.length <= 50 ? true : "Password must be at least eight characters and less than fifty characters long.",
     }
+    setErrors( prev => ( {...prev, [name] : validations[name](value)} ) )
 }
 
     const readyToSubmit = () => {
@@ -67,23 +69,15 @@ export const AccountInfo = (props) => {
         alert("Please fill out form correctly. Thank you.")
         return
     }
-    updateById(id)
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-    setUser({
-      firstName: '',
-      lastName: '',
-      email: '',
-      address: '',
-      city: '',
-      state: ''
-    })
+    updateById(user)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
     
     return (<>
     
     <div className="container">
-        <Nav/>
+        {/* <Nav/> */}
         <div className="account-box">
             <div className="card-body">
                 <h2 className='text-center text-danger'>Account Info</h2>
