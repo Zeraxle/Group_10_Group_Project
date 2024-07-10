@@ -11,12 +11,12 @@ export const PizzaForm = () => {
     comments: ''
   })
 
-  const [errors, setErrors] = ({
+  const [errors, setErrors] = useState({
     comments: ''
   })
   const changeHandler = e => {
     const {name, value} = e.target
-    setUser({...user, [name]: value})
+    setPizzaData({...pizzaData, [name]: value})
     validateUserAttribute(name, value)
   }
 
@@ -148,7 +148,7 @@ export const PizzaForm = () => {
             </section>
             <label className='form-label'>
               Additional Requests:
-              <textarea name="comments" onChange={changeHandler}></textarea>
+              <textarea name="comments" onChange={changeHandler} value={pizzaData.comments}></textarea>
               {errors.comments && <p>{errors.comments}</p>}
             </label>
           </div>
