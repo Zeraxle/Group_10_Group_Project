@@ -36,11 +36,11 @@ export const logUserIn = async (userData) =>{
     }catch(error) {throw error}
 }
 
-export const findUserById = async (userData) =>{
+export const findUserById = async (id) =>{
 
     // eslint-disable-next-line no-useless-catch
     try {
-        const  res = await USER_INSTANCE.get(`/${userData._id}`)
+        const  res = await USER_INSTANCE.get(`/${id}`)
         return res.data
     }catch(error) {throw error}
 }

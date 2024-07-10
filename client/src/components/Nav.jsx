@@ -3,7 +3,9 @@ import {useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import { logUserIn, logOutUser } from "../services/UserServices"
 
-const Nav = () => {
+const Nav = (props) => {
+
+    const {loggedInUser} = props
     const navigate = useNavigate()
     const {id} = useParams()
     const Logout = () => {
@@ -22,7 +24,7 @@ const Nav = () => {
                 <div>
                     <button><Link to={'/home'}>Home</Link></button>
                     <button><Link to={'/pizzaform'}>Order</Link></button>
-                    <button><Link to={'/user/account'}>Account</Link></button>
+                    <button><Link to={`/account/${loggedInUser}`}>Account</Link></button>
                     <button onClick={Logout}>Logout</button>
                 </div>
             </nav>

@@ -3,7 +3,10 @@ import { useNavigate, Link } from 'react-router-dom'
 import Nav from './Nav'
 import { createUser } from '../services/UserServices'
 
-export const RegistrationForm = () => {
+export const RegistrationForm = (props) => {
+  
+  const {setAllUsers, setLoggedInUser} = props
+
   const navigate = useNavigate()
   const [user, setUser] = useState({
     firstName: '',
@@ -67,6 +70,7 @@ export const RegistrationForm = () => {
       return
     }
     createUser(user)
+      .then(res => setLoggedInUser(res.id))
       .then(res => {navigate('/home')})
       // .then(res => console.log(res))
       .catch(err => console.log(err))
