@@ -1,4 +1,5 @@
 import { DataTypes, Sequelize } from "sequelize";
+import Pizza from "./pizza.model.js";
 import pkg from 'bcrypt-node';
 
 
@@ -95,6 +96,7 @@ const User = sequilize.define('user',{
 
     useBcrypt(User, options)
     
+
 
 
 User.sync({alter: true})

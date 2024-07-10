@@ -1,5 +1,6 @@
 
 import { Where } from "sequelize/lib/utils";
+import Pizza from "../models/pizza.model.js";
 import User from "../models/user.model.js";
 
 
