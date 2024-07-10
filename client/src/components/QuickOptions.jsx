@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom'
 export const QuickOptions = ({loggedInUser}) => {
     const {id} = useParams()
     const [pizzaData, setPizzaData] = useState({})
-    
+
   return (<>
     <div className='container'>
       {/* <Nav id={id}/> */}
@@ -16,7 +16,7 @@ export const QuickOptions = ({loggedInUser}) => {
           <Link to={'/pizzaform'}><button>New Order</button></Link>
         </div>
         <div>
-
+          <h2>Re-Order Your Favorite Pizza</h2>
           <Link to={'/pizzaform'}><button>Re-Order My Fav</button></Link>
         </div>
       </div>
