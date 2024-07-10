@@ -4,20 +4,19 @@ import Nav from './Nav'
 import { findUserById, updateUser } from '../services/UserServices'
 
 
-export const AccountInfo = () => {
+export const AccountInfo = (props) => {
 
-    
-    
+
+    const {loggedInUser} = props
+    // const {loggedInUser} = useParams()
+    const [user, setUser] = useState({})
+    useEffect(() => { 
+        findUserById(loggedInUser)
+            .then(res => console.log(res))
+        // .then(res => setUser(res))
+        .catch(error => console.log(error))
+    }, [])
     const navigate = useNavigate()
-    const {id} = useParams()
-    const [user, setUser] = useState({
-      firstName: '',
-      lastName: '',
-      email: '',
-      address: '',
-      city: '',
-      state: ''
-    })
     const [errors, setErrors] = useState({
       firstName: '',
       lastName: '',
@@ -175,7 +174,10 @@ export const AccountInfo = () => {
                     <p>Created At</p>
                     <p>Pizza info</p>
                 </div>
-                <input type="checkbox" />
+                <label>
+                    Favorite
+                    <input type="checkbox" />
+                </label>
             </section>
         </div>
     </div>

@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { logUserIn } from '../services/UserServices'
 
-export const LoginForm = () => {
+export const LoginForm = (props) => {
+
+  const {setLoggedInUser} = props
   const navigate = useNavigate()
   const [user, setUser] = useState({
     email: '',
@@ -44,6 +46,7 @@ export const LoginForm = () => {
       return
     }
     logUserIn(user)
+      .then(res => setLoggedInUser(res.id))
       .then(res => {navigate('/home')})
       // .then(res => console.log(res))
       .catch(err => console.log(err))

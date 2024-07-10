@@ -54,6 +54,7 @@ export const PizzaForm = () => {
                 <input 
                     type="checkbox" 
                     name="pepperoni"
+                    
                 
                 />
               </label>

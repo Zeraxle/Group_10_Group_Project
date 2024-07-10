@@ -2,7 +2,12 @@ import React from 'react'
 import Nav from './Nav'
 import { Link } from 'react-router-dom'
 
-export const QuickOptions = () => {
+export const QuickOptions = (props) => {
+
+
+    const {loggedInUser} = props
+    console.log(loggedInUser)
+
   return (<>
     <div className='container'>
       <Nav/>
