@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import {useNavigate, useParams} from 'react-router-dom'
 import Nav from './Nav'
-import { findUserById } from '../services/UserServices'
+import { findUserById, updateUser } from '../services/UserServices'
 
 
 export const AccountInfo = (props) => {
@@ -25,7 +25,13 @@ export const AccountInfo = (props) => {
       city: '',
       state: ''
     })
-    
+
+    useEffect(() => { 
+        findUserById(id)
+        .then(res => console.log(res))
+        .catch(error => console.log(error))
+    }, [])
+
     const changeHandler = e => {
     const {name, value} = e.target
     setUser({...user, [name]: value})
@@ -61,8 +67,16 @@ export const AccountInfo = (props) => {
         return
     }
     updateUser(user)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+    setUser({
+      firstName: '',
+      lastName: '',
+      email: '',
+      address: '',
+      city: '',
+      state: ''
+    })
     }
     
     return (<>

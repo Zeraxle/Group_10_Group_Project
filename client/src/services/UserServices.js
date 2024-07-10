@@ -50,7 +50,7 @@ export const getALLUsersPosts = async (userData) =>{
 
     // eslint-disable-next-line no-useless-catch
     try {
-        const  res = await USER_INSTANCE.get(`/userPosts/${userData._id}`)
+        const  res = await USER_INSTANCE.get(`/userPosts/${userData.id}`)
         return res.data
     }catch(error) {throw error}
 }
@@ -65,11 +65,11 @@ export const logOutUser = async (id) =>{
     }catch(error) {throw error}
 }
 
-export const updateUser = async (userData) =>{
-
+export const updateById = async (userData) =>{
+    
     // eslint-disable-next-line no-useless-catch
     try {
-        const  res = await USER_INSTANCE.post(`/update/${userData._id}`, userData)
+        const  res = await USER_INSTANCE.post(`/update/${userData.id}`, userData)
         return res.data
     }catch(error) {throw error}
 }
