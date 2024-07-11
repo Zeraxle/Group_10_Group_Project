@@ -7,7 +7,6 @@ export const PizzaForm = () => {
     size: '',
     crust: '',
     qty: 0,
-    toppings: [],
     comments: ''
   })
 
@@ -16,9 +15,10 @@ export const PizzaForm = () => {
   })
   const changeHandler = e => {
     const {name, value} = e.target
-    setPizzaData({...pizzaData, [name]: value})
-    validateUserAttribute(name, value)
-  }
+   {setPizzaData(prev => ({...prev, [name]: value}))}
+        validateUserAttribute(name, value)
+    }
+  
 
   const validateUserAttribute = (name, value) => {
     const validations = {
@@ -79,75 +79,8 @@ export const PizzaForm = () => {
             <option value="10">10</option>
           </select>
           <div className="form-group d-flex justify-content-evenly">
-            <section className="toppings">
-                <p>Choose Your Toppings</p>
-                <label>
-                  Pepperoni
-                  <input
-                      type="checkbox"
-                      name="pepperoni"
-                  />
-                </label>
-                <label>
-                  Sausage
-                  <input
-                      type="checkbox"
-                      name="sausage"
-            
-                  />
-                </label>
-                <label>
-                  Ham
-                  <input
-                      type="checkbox"
-                      name="ham"
-            
-                  />
-                </label>
-                <label>
-                  Four Cheese
-                  <input
-                      type="checkbox"
-                      name="four_cheese"
-            
-                  />
-                </label>
-                <label>
-                  Green Peppers
-                  <input
-                      type="checkbox"
-                      name="green_peppers"
-            
-                  />
-                </label>
-                <label>
-                  Grilled Chicken
-                  <input
-                      type="checkbox"
-                      name="grilled_chicken"
-            
-                  />
-                </label>
-                <label>
-                  Mushrooms
-                  <input
-                      type="checkbox"
-                      name="mushrooms"
-            
-                  />
-                </label>
-                <label>
-                  Onions
-                  <input
-                      type="checkbox"
-                      name="onions"
-            
-                  />
-                </label>
-                <p>THERE WILL NEVER BE PINEAPPLE!!!</p>
-            </section>
             <label className='form-label'>
-              Additional Requests:
+              <p>Make up your own Toppings(NO PINEAPPLE!!!)</p>
               <textarea name="comments" onChange={changeHandler} value={pizzaData.comments}></textarea>
               {errors.comments && <p>{errors.comments}</p>}
             </label>
