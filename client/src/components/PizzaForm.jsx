@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 import Nav from './Nav'
 import { createPizza } from '../services/PizzaService'
+import {useNavigate} from 'react-router-dom' 
 
 export const PizzaForm = ({loggedInUser}) => {
+
+  const navigate = useNavigate()
   const [pizzaData, setPizzaData] = useState({
     userId: loggedInUser.id,
     method: '',
     size: '',
     crust: '',
     qty: '',
-    comments: ''
+    comments: '',
+    favorite: false
   })
 
   const [errors, setErrors] = useState({
@@ -17,7 +21,10 @@ export const PizzaForm = ({loggedInUser}) => {
   })
   const changeHandler = e => {
     const {name, value} = e.target
-    {setPizzaData(prev => ({...prev, [name]: value}))}
+    if(name == "favorite"){
+      let checkedValue = e.target.checked
+      setPizzaData(prev => ({...prev, [name]: checkedValue}))
+    }else{{setPizzaData(prev => ({...prev, [name]: value}))}}
     // validateUserAttribute(name, value)
     }
 
@@ -51,6 +58,7 @@ export const PizzaForm = ({loggedInUser}) => {
     }
     createPizza(pizzaData)
       .then(res=>console.log(res))
+      .then(navigate('/home'))
       .catch(err=>console.log(err))
   }
   
@@ -92,6 +100,14 @@ export const PizzaForm = ({loggedInUser}) => {
               <p>Make up your own Toppings(NO PINEAPPLE!!!)</p>
               <textarea name="comments" className='form-control' onChange={commentsChangeHandler} value={pizzaData.comments}></textarea>
               {errors.comments && <p>{errors.comments}</p>}
+            </label>
+            <label>
+                Favorite this pizza?
+                <input 
+                    type="checkbox"
+                    name="favorite"
+                    onChange={changeHandler}
+                    value={pizzaData.favorite} />
             </label>
           </div>
           <input type="submit" value="Add to Order" />

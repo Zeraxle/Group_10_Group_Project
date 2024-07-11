@@ -17,17 +17,13 @@ const Pizza = sequilize.define('pizza', {
     method:{
         type : DataTypes.STRING,
         allowNull: false, 
-        validate:{
-            len:[2,10]
-        } 
+        
     },
     
     size : {
         type : DataTypes.STRING,
         allowNull : false,
-        validate :{
-            len: [1,10]
-        }
+        
     },
     // toppings : {
     //     type: Sequelize.STRING,
@@ -39,24 +35,18 @@ const Pizza = sequilize.define('pizza', {
     crust:{
         type : DataTypes.STRING,
         allowNull: false,
-        validate :{
-            len : [2,15]
-        }
     },
 
     qty :{
         type : DataTypes.STRING,
         allowNull : false,
         validate :{
-            max : 50
+            len : [0, 10]
         }
     },
     favorite:{
         type : DataTypes.BOOLEAN,
-        allowNull : true,
-        validate :{
-            len:[2,6]
-        }
+        allowNull : false,
     },
     comments :{
         type: DataTypes.STRING,
