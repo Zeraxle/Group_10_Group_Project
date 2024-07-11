@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import Nav from './Nav'
 import { createPizza } from '../services/PizzaService'
 
-export const PizzaForm = () => {
+export const PizzaForm = ({loggedInUser}) => {
   const [pizzaData, setPizzaData] = useState({
+    userId: loggedInUser.id,
     method: '',
     size: '',
     crust: '',
