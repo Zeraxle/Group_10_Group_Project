@@ -20,6 +20,7 @@ export const QuickOptions = ({loggedInUser}) => {
         <div>
           <h2>Create Your Own Pizza Here</h2>
           <p>METHOD: Carry Out</p>
+          <p>Size: Large</p>
           <p>QTY: 1</p>
           <p>Crust: Thin Crust</p>
           <p>Toppings: Pepperoni</p>
@@ -28,6 +29,7 @@ export const QuickOptions = ({loggedInUser}) => {
         <div>
           <h2>Re-Order Your Favorite Pizza</h2>
           <p>METHOD: {pizzaData.method}</p>
+          <p>Size: {pizzaData.size}</p>
           <p>QTY: {pizzaData.qty}</p>
           <p>Crust: {pizzaData.crust}</p>
           <p>Toppings: {pizzaData.comments}</p>
