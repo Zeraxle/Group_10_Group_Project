@@ -1,23 +1,31 @@
-import React, { useState } from 'react'
-import Nav from './Nav'
-import { createPizza } from '../services/PizzaService'
-import {useNavigate} from 'react-router-dom' 
+import React, { useEffect, useState } from 'react'
+import { findUsersFavPizza } from '../services/UserServices'
+import { useNavigate } from 'react-router-dom'
 
-export const PizzaForm = ({loggedInUser}) => {
+export const UpdatePizzaForm = ({loggedInUser}) => {
 
   const navigate = useNavigate()
   const [pizzaData, setPizzaData] = useState({
     userId: loggedInUser.id,
-    method: 'Carry Out',
-    size: 'Large',
-    crust: 'Thin Crust',
-    qty: '1',
+    method: '',
+    size: '',
+    crust: '',
+    qty: '',
     comments: '',
     favorite: false
   })
   const [errors, setErrors] = useState({
     comments: ''
   })
+  useEffect(()=>{
+    findUsersFavPizza(loggedInUser.id)
+    .then(res => {
+      console.log(res)
+      setPizzaData(res)
+    })
+    .catch(err=> console.log(err))
+  },[])
+
   const changeHandler = e => {
     const {name, value} = e.target
     if(name == "favorite"){
@@ -67,20 +75,20 @@ export const PizzaForm = ({loggedInUser}) => {
       <form onSubmit={submitHandler}>
         <div className="form-group">
           <label htmlFor='method' className='form-label'>Method:</label>
-          <select name="method" id="method" className='form-select' onChange={changeHandler} value={pizzaData.method} required>
+          <select name="method" id="method" className='form-select' onChange={changeHandler} value={pizzaData.method}>
             <option value="Carry Out">Carry Out</option>
             <option value="Delivery">Delivery</option>
           </select>
         </div>
         <div className='form-group'>
           <label htmlFor='size' className='form-label'>Size:</label>
-          <select name="size" id="size" className='form-select' onChange={changeHandler} value={pizzaData.size} required>
-            <option value="Large" selected>Large</option>
+          <select name="size" id="size" className='form-select' onChange={changeHandler} value={pizzaData.size}>
+            <option value="Large">Large</option>
             <option value="Medium">Medium</option>
             <option value="Small">Small</option>
           </select>
           <label htmlFor='crust' className='form-label'>Crust:</label>
-          <select name="crust" id="crust" className='form-select'  onChange={changeHandler} value={pizzaData.crust} required>
+          <select name="crust" id="crust" className='form-select'  onChange={changeHandler} value={pizzaData.crust}>
             <option value="Thin Crust">Thin Crust</option>
             <option value="Regular Crust">Regular Crust</option>
           </select>

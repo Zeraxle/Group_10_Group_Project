@@ -7,6 +7,7 @@ import { QuickOptions } from './components/QuickOptions'
 import { PizzaForm } from './components/PizzaForm'
 import { AccountInfo } from './components/AccountInfo'
 import Nav from './components/Nav'
+import { UpdatePizzaForm } from './components/UpdatePizzaForm'
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
@@ -19,6 +20,7 @@ function App() {
     <Route path='/home' element={<QuickOptions loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
     <Route path='/pizzaform' element={<PizzaForm loggedInUser={loggedInUser}/>}/>
     <Route path='/account' element={<AccountInfo setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser} setLoggedInUserPizza={setLoggedInUserPizza}/>}/>
+    <Route path='/favpizzaform' element={<UpdatePizzaForm loggedInUser={loggedInUser}/>}/>
     {/* <Route path='/logout' element={<Nav loggedInUser={loggedInUser}/>}/> */}
   </Routes>
   </>)
