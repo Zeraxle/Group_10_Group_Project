@@ -53,7 +53,7 @@ const Pizza = sequilize.define('pizza', {
     },
     favorite:{
         type : DataTypes.BOOLEAN,
-        allowNull : false,
+        allowNull : true,
         validate :{
             len:[2,6]
         }
