@@ -8,10 +8,10 @@ export const PizzaForm = ({loggedInUser}) => {
   const navigate = useNavigate()
   const [pizzaData, setPizzaData] = useState({
     userId: loggedInUser.id,
-    method: '',
-    size: '',
-    crust: '',
-    qty: '',
+    method: 'Carry Out',
+    size: 'Large',
+    crust: 'Thin Crust',
+    qty: '1',
     comments: '',
     favorite: false
   })
@@ -67,20 +67,20 @@ export const PizzaForm = ({loggedInUser}) => {
       <form onSubmit={submitHandler}>
         <div className="form-group">
           <label htmlFor='method' className='form-label'>Method:</label>
-          <select name="method" id="method" className='form-select' onChange={changeHandler} value={pizzaData.method}>
+          <select name="method" id="method" className='form-select' onChange={changeHandler} value={pizzaData.method} required>
             <option value="Carry Out">Carry Out</option>
             <option value="Delivery">Delivery</option>
           </select>
         </div>
         <div className='form-group'>
           <label htmlFor='size' className='form-label'>Size:</label>
-          <select name="size" id="size" className='form-select' onChange={changeHandler} value={pizzaData.size}>
-            <option value="Large">Large</option>
+          <select name="size" id="size" className='form-select' onChange={changeHandler} value={pizzaData.size} required>
+            <option value="Large" selected>Large</option>
             <option value="Medium">Medium</option>
             <option value="Small">Small</option>
           </select>
           <label htmlFor='crust' className='form-label'>Crust:</label>
-          <select name="crust" id="crust" className='form-select'  onChange={changeHandler} value={pizzaData.crust}>
+          <select name="crust" id="crust" className='form-select'  onChange={changeHandler} value={pizzaData.crust} required>
             <option value="Thin Crust">Thin Crust</option>
             <option value="Regular Crust">Regular Crust</option>
           </select>
