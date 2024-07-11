@@ -15,7 +15,6 @@ export const PizzaForm = ({loggedInUser}) => {
     comments: '',
     favorite: false
   })
-
   const [errors, setErrors] = useState({
     comments: ''
   })

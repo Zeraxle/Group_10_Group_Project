@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Nav from './Nav'
 import { Link, useParams } from 'react-router-dom'
+import { findUsersFavPizza } from '../services/UserServices'
 
 export const QuickOptions = ({loggedInUser}) => {
     const {id} = useParams()
     const [pizzaData, setPizzaData] = useState({})
+    useEffect(()=> {
+      findUsersFavPizza(loggedInUser.id)
+      .then(res => setPizzaData(res))
+      .catch(err=> console.log(err))
+    }, [])
 
   return (<>
     <div className='container'>
@@ -21,6 +27,10 @@ export const QuickOptions = ({loggedInUser}) => {
         </div>
         <div>
           <h2>Re-Order Your Favorite Pizza</h2>
+          <p>METHOD: {pizzaData.method}</p>
+          <p>QTY: {pizzaData.qty}</p>
+          <p>Crust: {pizzaData.crust}</p>
+          <p>Toppings: {pizzaData.comments}</p>
           <Link to={'/pizzaform'}><button>Re-Order My Fav</button></Link>
         </div>
       </div>

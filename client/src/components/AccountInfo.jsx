@@ -1,14 +1,14 @@
 import {useState, useEffect} from 'react'
 import {useNavigate, useParams} from 'react-router-dom'
 import Nav from './Nav'
-import { findUserById, updateById} from '../services/UserServices'
+import { findUserById, getALLUsersPizzas, updateById} from '../services/UserServices'
 
 
 export const AccountInfo = ({loggedInUser}) => {
     // const {id} = useParams()
     const [user, setUser] = useState({})
-    const [pizzaData, setPizzaData] = useState([])
-    // const navigate = useNavigate()
+    // const [pizzaData, setPizzaData] = useState([])
+    const [usersPizzas, setUsersPizza] = useState([])
     const [errors, setErrors] = useState({
         firstName: '',
         lastName: '',
@@ -19,8 +19,15 @@ export const AccountInfo = ({loggedInUser}) => {
     })
 
     useEffect(()=>{
-        
-    })
+        getALLUsersPizzas(loggedInUser.id)
+        .then(res => {
+            const user = res[0]
+            const pizzas = user.pizzas
+            // console.log(pizzas)
+            setUsersPizza(pizzas)
+        })
+        .catch(err=>console.log(err))
+    }, [])
 
     const updatePizzaBoolean = e => {
         const {name, value} = e. target
@@ -174,15 +181,14 @@ export const AccountInfo = ({loggedInUser}) => {
                 </form>
             </div>
             <section className="past-orders-section">
-                <h2>Past Orders</h2>
-                <div>
-                    <p>Created At</p>
-                    <p>Pizza info</p>
-                </div>
-                <label>
-                    Favorite
-                    <input type="checkbox" />
-                </label>
+            <h2>Previously Ordered Pizzas</h2>
+                {
+                    usersPizzas.map( pizza => (
+                        <div key={pizza.id}>
+                            <p>{pizza.size} {pizza.crust}- {pizza.comments} {pizza.favorite ? "- Favorite Pizza" : ''}</p>
+                        </div>
+                    ))
+                }
             </section>
         </div>
     </div>
