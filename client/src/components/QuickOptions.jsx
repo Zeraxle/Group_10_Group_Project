@@ -6,11 +6,13 @@ import { findUsersFavPizza } from '../services/UserServices'
 export const QuickOptions = ({loggedInUser}) => {
     const {id} = useParams()
     const [pizzaData, setPizzaData] = useState({})
-    useEffect(()=> {
-      findUsersFavPizza(loggedInUser.id)
-      .then(res => setPizzaData(res))
-      .catch(err=> console.log(err))
-    }, [])
+    if(loggedInUser.pizzas){
+      useEffect(()=> {
+        findUsersFavPizza(loggedInUser.id)
+        .then(res => setPizzaData(res))
+        .catch(err=> console.log(err))
+      }, [])
+    }
 
   return (<>
     <div className='container'>
