@@ -63,22 +63,22 @@ export const logUserIn = async (req,res,next ) =>{
     }
 }
 
-export const getALLUsersPosts = async (req, res, next) =>{
+export const getALLUsersPizzas = async (req, res, next) =>{
     try{
         const {userId} = req.params
         // console.log("yooooo")
-        const getAllPostsByUser = await User.findAll({
+        const getAllPizzasByUser = await User.findAll({
             // console.log("yooooooooooo")
             where : {id : userId},
 
             include :[
                 {
-                model :  Post
+                model :  Pizza
                 }
 
             ] 
         })
-        res.status(200).json(getAllPostsByUser)
+        res.status(200).json(getAllPizzasByUser)
 
 
     }catch (error){
@@ -124,10 +124,35 @@ export const updateById = async(req,res,next)=>{
 }
 
 
-// export const findUsersFavPizza = async (res, req, next ) =>{
-//     try{
 
-//     }catch(error)
-//     console.error(error);
-//     res.status(400).json(error)
-// }
+export const findUsersFavPizza = async (req, res, next) =>{
+    try{
+        const {userId} = req.params
+
+        const foundUser = await User.findByPk(userId)
+        const favPizza = foundUser.pizzas
+        console.log("yooooo")
+        console.log(favPizza)
+        const getAllPizzasByUser = await Pizza.findOne({
+            // console.log("yooooooooooo")
+            where : {favorite  : true},
+            // where : { userId.pizzas.},
+            
+            include :[
+                    {
+                        model :  User
+                        }
+                    
+                    
+                    ] 
+                    
+                })
+            
+        
+        res.status(200).json(getAllPizzasByUser)
+
+
+    }catch (error){
+        res.status(400).json({error: 'User has not favorite pizzas '})
+    }
+}

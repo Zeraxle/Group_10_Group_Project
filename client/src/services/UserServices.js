@@ -75,6 +75,24 @@ export const updateById = async (userData) =>{
 }
 
 
+export const findUsersFavPizza = async (id) =>{
+    
+    // eslint-disable-next-line no-useless-catch
+    try {
+        const  res = await USER_INSTANCE.get(`/userPizzas/${id}`)
+        return res.data
+    }catch(error) {throw error}
+}
+
+export const getALLUsersPizzas = async (id) =>{
+    // eslint-disable-next-line no-useless-catch
+    try{ const  res = await USER_INSTANCE.get(`/allUsersPizzas/${id}`)
+    return res.data
+
+    }catch(error) {throw error}
+}
+
+
 
 
 
