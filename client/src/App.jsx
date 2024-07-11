@@ -14,7 +14,7 @@ function App() {
   return (<>
   <Nav loggedInUser={loggedInUser}/>
   <Routes>
-    <Route path='/' element={<RegistrationForm/>}/>
+    <Route path='/' element={<RegistrationForm setLoggedInUser={setLoggedInUser}/>}/>
     <Route path='/login' element={<LoginForm setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}/>}/>
     <Route path='/home' element={<QuickOptions loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
     <Route path='/pizzaform' element={<PizzaForm loggedInUser={loggedInUser}/>}/>

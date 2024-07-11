@@ -13,6 +13,10 @@ export const QuickOptions = ({loggedInUser}) => {
       <div className='d-flex justify-content-evenly'>
         <div>
           <h2>Create Your Own Pizza Here</h2>
+          <p>METHOD: Carry Out</p>
+          <p>QTY: 1</p>
+          <p>Crust: Thin Crust</p>
+          <p>Toppings: Pepperoni</p>
           <Link to={'/pizzaform'}><button>New Order</button></Link>
         </div>
         <div>
