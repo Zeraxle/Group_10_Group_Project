@@ -29,13 +29,13 @@ const Pizza = sequilize.define('pizza', {
             len: [1,5]
         }
     },
-    toppings : {
-        type: Sequelize.STRING,
-        allowNull : true,
-        validate : {
-            len : [0,255]
-        }
-    }, 
+    // toppings : {
+    //     type: Sequelize.STRING,
+    //     allowNull : true,
+    //     validate : {
+    //         len : [0,255]
+    //     }
+    // }, 
     crust:{
         type : DataTypes.STRING,
         allowNull: false,
@@ -45,7 +45,7 @@ const Pizza = sequilize.define('pizza', {
     },
 
     qty :{
-        type : DataTypes.INTEGER,
+        type : DataTypes.STRING,
         allowNull : false,
         validate :{
             max : 50

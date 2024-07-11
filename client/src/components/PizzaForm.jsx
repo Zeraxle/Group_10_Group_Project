@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import Nav from './Nav'
+import { createPizza } from '../services/PizzaService'
 
 export const PizzaForm = () => {
   const [pizzaData, setPizzaData] = useState({
     method: '',
     size: '',
     crust: '',
-    qty: 0,
+    qty: '',
     comments: ''
   })
 
@@ -15,9 +16,15 @@ export const PizzaForm = () => {
   })
   const changeHandler = e => {
     const {name, value} = e.target
-   {setPizzaData(prev => ({...prev, [name]: value}))}
-        validateUserAttribute(name, value)
+    {setPizzaData(prev => ({...prev, [name]: value}))}
+    // validateUserAttribute(name, value)
     }
+
+    const commentsChangeHandler = e => {
+      const {name, value} = e.target
+      {setPizzaData(prev => ({...prev, [name]: value}))}
+      validateUserAttribute(name, value)
+      }
   
 
   const validateUserAttribute = (name, value) => {
@@ -34,54 +41,55 @@ export const PizzaForm = () => {
     }
     return true
   }
+  console.log(pizzaData)
   const submitHandler = e => {
     e.preventDefault()
     if(!readyToSubmit()){
       alert("Please fill out form correctly. Thank you.")
       return
     }
+    createPizza(pizzaData)
+      .then(res=>console.log(res))
+      .catch(err=>console.log(err))
   }
   
   return (<>
     <div className="container">
       {/* <Nav loggedInUser={loggedInUser}/> */}
-      <form>
+      <form onSubmit={submitHandler}>
         <div className="form-group">
           <label htmlFor='method' className='form-label'>Method:</label>
           <select name="method" id="method" className='form-select' onChange={changeHandler}>
-            <option value="carryOut">Carry Out</option>
-            <option value="delivery">Delivery</option>
+            <option value="Carry Out">Carry Out</option>
+            <option value="Delivery">Delivery</option>
           </select>
         </div>
         <div className='form-group'>
           <label htmlFor='size' className='form-label'>Size:</label>
           <select name="size" id="size" className='form-select' onChange={changeHandler}>
-            <option value="large">Large</option>
-            <option value="medium">Medium</option>
-            <option value="small">Small</option>
+            <option value="Large">Large</option>
+            <option value="Medium">Medium</option>
+            <option value="Small">Small</option>
           </select>
           <label htmlFor='crust' className='form-label'>Crust:</label>
           <select name="crust" id="crust" className='form-select'  onChange={changeHandler}>
-            <option value="thinCrust">Thin Crust</option>
-            <option value="regularCrust">Regular Crust</option>
+            <option value="Thin Crust">Thin Crust</option>
+            <option value="Regular Crust">Regular Crust</option>
           </select>
-          <label htmlFor='quantity' className='form-label'>QTY:</label>
-          <select name="quantity" id="quantity" className='form-select'  onChange={changeHandler}>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
+          <label htmlFor='qty' className='form-label'>
+            QTY:
+            <input 
+              name='qty'
+              type="text" 
+              onChange={changeHandler}
+              value={pizzaData.qty}
+              className='form-control'
+            />
+          </label>
           <div className="form-group d-flex justify-content-evenly">
             <label className='form-label'>
               <p>Make up your own Toppings(NO PINEAPPLE!!!)</p>
-              <textarea name="comments" onChange={changeHandler} value={pizzaData.comments}></textarea>
+              <textarea name="comments" className='form-control' onChange={commentsChangeHandler} value={pizzaData.comments}></textarea>
               {errors.comments && <p>{errors.comments}</p>}
             </label>
           </div>
