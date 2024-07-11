@@ -5,4 +5,4 @@ export const pizzaRouter = Router()
 
 pizzaRouter.route("/")
     .post (createPizza)
-    .get(findFavPizza)
+    // .get(findFavPizza)
