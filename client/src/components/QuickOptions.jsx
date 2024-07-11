@@ -31,7 +31,7 @@ export const QuickOptions = ({loggedInUser}) => {
           <p>QTY: {pizzaData.qty}</p>
           <p>Crust: {pizzaData.crust}</p>
           <p>Toppings: {pizzaData.comments}</p>
-          <Link to={'/pizzaform'}><button>Re-Order My Fav</button></Link>
+          <Link to={`/favpizzaform`}><button>Re-Order My Fav</button></Link>
         </div>
       </div>
     </div>

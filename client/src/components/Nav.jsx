@@ -14,6 +14,7 @@ const Nav = ({loggedInUser}) => {
                 .catch(err => console.log(err))
         }
     }
+    
 
 
     return(<>
