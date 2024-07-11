@@ -36,3 +36,12 @@ export const updatePizzaById = async (id) =>{
         return res.data
     }catch(error) {throw error}
 }
+
+
+export const deletePizzaById = async (id) =>{
+    // eslint-disable-next-line no-useless-catch
+    try {
+        const  res = await PIZZA_INSTANCE.delete(`/${id}`)
+        return res.data
+    }catch(error) {throw error}
+}

@@ -77,6 +77,23 @@ export const updatePizzaById = async(req,res,next)=>{
 
 
 
+export const deletePizzaById = async (req,res,next ) =>{
+
+    try{
+        const {id} = req.params
+        // SETTING THE VAR ID EQUAL TO PARAMETER WE ENTER INTO OUR ROUTE 
+        const deletePizzaId = await Pizza.destroy({
+            where : {
+                id : id
+            }
+        })
+        res.status(200).json(deletePizzaId)
+    }catch (error){
+        res.status(400).json(error)
+    }
+}
+
+
 // export const createUser= async(req,res, next )=>{
 //     try{
 //     const createThisUser = await User.create(req.body)
