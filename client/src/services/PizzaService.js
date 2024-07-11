@@ -10,7 +10,7 @@ const PIZZA_INSTANCE = axios.create({
 export const createPizza = async PizzaData  =>{
     // eslint-disable-next-line no-useless-catch
     try{
-        const res = PIZZA_INSTANCE.post("/", PizzaData)
+        const res = await PIZZA_INSTANCE.post("/", PizzaData)
         return res.data
     }catch(error){throw error}
 }
