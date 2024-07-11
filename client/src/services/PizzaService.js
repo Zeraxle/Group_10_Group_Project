@@ -14,3 +14,15 @@ export const createPizza = async PizzaData  =>{
         return res.data
     }catch(error){throw error}
 }
+
+
+
+
+export const findPizzaById = async (id) =>{
+
+    // eslint-disable-next-line no-useless-catch
+    try {
+        const  res = await PIZZA_INSTANCE.get(`/${id}`)
+        return res.data
+    }catch(error) {throw error}
+}
