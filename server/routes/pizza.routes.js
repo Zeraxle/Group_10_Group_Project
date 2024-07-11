@@ -1,8 +1,10 @@
 import { Router } from "express";
-import { createPizza ,findFavPizza} from "../controllers/pizza.controller.js";
+import { createPizza , findPizzaById} from "../controllers/pizza.controller.js";
 
 export const pizzaRouter = Router()
 
 pizzaRouter.route("/")
     .post (createPizza)
-    // .get(findFavPizza)
+
+pizzaRouter.route("/:id")
+    .get(findPizzaById)

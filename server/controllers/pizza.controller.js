@@ -38,6 +38,18 @@ export const findFavPizza = async (req, res, next) =>{
 }
 
 
+export const findPizzaById = async (req,res,next ) =>{
+
+    try{
+        const {id} = req.params
+        // SETTING THE VAR ID EQUAL TO PARAMETER WE ENTER INTO OUR ROUTE 
+        const findPizzaId = await Pizza.findByPk(id)
+        res.status(200).json(findPizzaId)
+    }catch (error){
+        res.status(400).json(error)
+    }
+}
+
 
 // export const createUser= async(req,res, next )=>{
 //     try{
