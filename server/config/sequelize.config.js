@@ -6,7 +6,7 @@ import {Sequelize} from "sequelize"
 export const sequilize = new Sequelize(
     'pizzapetedb',// database,
     'root', // db User
-    'root',// db password 
+    'Samosho10',// db password 
     {
         host : '127.0.0.1',
         dialect : 'mysql',
