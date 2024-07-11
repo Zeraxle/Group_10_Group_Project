@@ -67,20 +67,20 @@ export const PizzaForm = ({loggedInUser}) => {
       <form onSubmit={submitHandler}>
         <div className="form-group">
           <label htmlFor='method' className='form-label'>Method:</label>
-          <select name="method" id="method" className='form-select' onChange={changeHandler}>
+          <select name="method" id="method" className='form-select' onChange={changeHandler} value={pizzaData.method}>
             <option value="Carry Out">Carry Out</option>
             <option value="Delivery">Delivery</option>
           </select>
         </div>
         <div className='form-group'>
           <label htmlFor='size' className='form-label'>Size:</label>
-          <select name="size" id="size" className='form-select' onChange={changeHandler}>
+          <select name="size" id="size" className='form-select' onChange={changeHandler} value={pizzaData.size}>
             <option value="Large">Large</option>
             <option value="Medium">Medium</option>
             <option value="Small">Small</option>
           </select>
           <label htmlFor='crust' className='form-label'>Crust:</label>
-          <select name="crust" id="crust" className='form-select'  onChange={changeHandler}>
+          <select name="crust" id="crust" className='form-select'  onChange={changeHandler} value={pizzaData.crust}>
             <option value="Thin Crust">Thin Crust</option>
             <option value="Regular Crust">Regular Crust</option>
           </select>
