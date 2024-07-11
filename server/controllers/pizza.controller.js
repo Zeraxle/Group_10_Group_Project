@@ -10,6 +10,33 @@ export const createPizza = async (req, res, next ) =>{
     }
 }
 
+export const findFavPizza = async (req, res, next) =>{
+    try{
+        // const foundUser = await User.findByPk(userId)
+        // const {userId} = req.params
+        // console.log("yooooo")
+        const getAllFavPizzas = await Pizza.findAll({
+            // console.log("yooooooooooo")
+            where : {favorite  : true},
+            // where : { userId.pizzas.},
+
+            // include :[
+            //     {
+            //     model :  Pizza
+            //     }
+
+            // ] 
+        })
+        res.status(200).json(getAllFavPizzas)
+
+
+    }catch (error){
+        res.status(400).json(error)
+    }
+
+
+}
+
 
 
 // export const createUser= async(req,res, next )=>{

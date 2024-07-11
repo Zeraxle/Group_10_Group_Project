@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { createUser, findAllUsers, findUserById, logUserIn,getALLUsersPosts, logOutUser, updateById} from "../controllers/user.controller.js";
+import { createUser, findAllUsers, findUserById, logUserIn, logOutUser, updateById, findUsersFavPizza, getALLUsersPizzas} from "../controllers/user.controller.js";
 
 const userRouter = Router()
 
@@ -11,8 +11,11 @@ userRouter.route("/")
 userRouter.route("/login")
     .post(logUserIn)
 
-userRouter.route("/userPosts/:userId")
-    .get(getALLUsersPosts)
+userRouter.route("/userPizzas/:userId")
+    .get(findUsersFavPizza)
+
+userRouter.route("/allUsersPizzas/:userId")
+    .get(getALLUsersPizzas)
 
 userRouter.route("/:id")
     .get(findUserById)
