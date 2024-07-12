@@ -195,7 +195,7 @@ export const AccountInfo = ({loggedInUser}) => {
                     usersPizzas.map( pizza => (
                         <div key={pizza.id}>
                             <p>{pizza.size} {pizza.crust}- {pizza.comments} {pizza.favorite ? "- Favorite Pizza" : ''}</p>
-                            <button onClick={()=>deleteHandler(pizza.id)}>Delete</button>
+                            <button className='btn btn-outline-danger btn-sm' onClick={()=>deleteHandler(pizza.id)}>Delete</button>
                         </div>
                     ))
                 }
