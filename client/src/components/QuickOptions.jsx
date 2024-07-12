@@ -13,6 +13,7 @@ export const QuickOptions = ({loggedInUser}) => {
         .catch(err=> console.log(err))
       }, [])
     }
+    
   return (<>
     <div className='container'>
       {/* <Nav id={id}/> */}

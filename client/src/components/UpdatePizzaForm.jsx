@@ -24,6 +24,9 @@ export const UpdatePizzaForm = ({loggedInUser}) => {
     .then(res => {
       // console.log(res)
       setPizzaData(res)
+      setErrors({
+        comments: true
+      })
     })
     .catch(err=> console.log(err))
   },[])
