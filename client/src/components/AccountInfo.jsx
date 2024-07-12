@@ -92,10 +92,11 @@ export const AccountInfo = ({loggedInUser}) => {
         .catch(err => console.log(err))
     }
 
-    const deleteHandler = e => {
+    const deleteHandler = id => {
         deletePizzaById(id)
-        .then(setUsersPizza())
-
+        .then(res => {
+            usersPizzas.filter()
+        })
     } 
         
     
@@ -194,7 +195,7 @@ export const AccountInfo = ({loggedInUser}) => {
                     usersPizzas.map( pizza => (
                         <div key={pizza.id}>
                             <p>{pizza.size} {pizza.crust}- {pizza.comments} {pizza.favorite ? "- Favorite Pizza" : ''}</p>
-                            <button onSubmit={deleteHandler}>Delete</button>
+                            <button onClick={()=>deleteHandler(pizza.id)}>Delete</button>
                         </div>
                     ))
                 }
