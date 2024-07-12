@@ -13,7 +13,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
   const [loggedInUserPizza, setLoggedInUserPizza] = useState({})
   return (<>
-  <Nav loggedInUser={loggedInUser}/>
+  <Nav loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
   <Routes>
     <Route path='/' element={<RegistrationForm setLoggedInUser={setLoggedInUser}/>}/>
     <Route path='/login' element={<LoginForm setLoggedInUser={setLoggedInUser} loggedInUser={loggedInUser}/>}/>

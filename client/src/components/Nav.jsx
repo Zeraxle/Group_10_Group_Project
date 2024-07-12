@@ -3,16 +3,19 @@ import {useParams} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import { logOutUser } from "../services/UserServices"
 
-const Nav = ({loggedInUser}) => {
+const Nav = ({loggedInUser, setLoggedInUser}) => {
 
-    // const {loggedInUser} = props
+    if(loggedInUser.id){
+        // const {loggedInUser} = props
     const navigate = useNavigate()
     const Logout = () => {
-        if (loggedInUser.id){
-            logOutUser(loggedInUser.id)
-                .then(res => navigate('/'))
-                .catch(err => console.log(err))
-        }
+        logOutUser(loggedInUser.id)
+            .then(res => {
+                setLoggedInUser({})
+                navigate('/')
+            })
+            .catch(err => console.log(err))
+        
     }
     
 
@@ -30,6 +33,7 @@ const Nav = ({loggedInUser}) => {
             </nav>
         </header>
     </>)
+    }
 }
 
 export default Nav
