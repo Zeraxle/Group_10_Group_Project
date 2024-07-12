@@ -6,9 +6,7 @@ import { deletePizzaById } from '../services/PizzaService'
 
 
 export const AccountInfo = ({loggedInUser}) => {
-    // const {id} = useParams()
     const [user, setUser] = useState({})
-    // const [pizzaData, setPizzaData] = useState([])
     const [usersPizzas, setUsersPizza] = useState([])
     const [errors, setErrors] = useState({
         firstName: '',
