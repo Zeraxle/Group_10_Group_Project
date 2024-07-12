@@ -114,10 +114,11 @@ export const UpdatePizzaForm = ({loggedInUser}) => {
                     type="checkbox"
                     name="favorite"
                     onChange={changeHandler}
-                    value={pizzaData.favorite} />
+                    value={pizzaData.favorite}
+                    checked={pizzaData.favorite} />
             </label>
           </div>
-          <input type="submit" value="Add to Order" />
+          <input type="submit" value="Update Order" />
         </div>
       </form>
     </div>

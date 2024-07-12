@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import {useNavigate, useParams} from 'react-router-dom'
 import Nav from './Nav'
 import { findUserById, getALLUsersPizzas, updateById} from '../services/UserServices'
+import { deletePizzaById } from '../services/PizzaService'
 
 
 export const AccountInfo = ({loggedInUser}) => {
@@ -90,6 +91,13 @@ export const AccountInfo = ({loggedInUser}) => {
         .then(res => console.log(res))
         .catch(err => console.log(err))
     }
+
+    const deleteHandler = e => {
+        deletePizzaById(id)
+        .then(setUsersPizza())
+
+    } 
+        
     
     return (<>
     
@@ -186,9 +194,11 @@ export const AccountInfo = ({loggedInUser}) => {
                     usersPizzas.map( pizza => (
                         <div key={pizza.id}>
                             <p>{pizza.size} {pizza.crust}- {pizza.comments} {pizza.favorite ? "- Favorite Pizza" : ''}</p>
+                            <button onSubmit={deleteHandler}>Delete</button>
                         </div>
                     ))
                 }
+
             </section>
         </div>
     </div>
