@@ -29,10 +29,10 @@ export const findPizzaById = async (id) =>{
 }
 
 
-export const updatePizzaById = async (id) =>{
+export const updatePizzaById = async (pizzaData) =>{
     // eslint-disable-next-line no-useless-catch
     try {
-        const  res = await PIZZA_INSTANCE.post(`/${id}`)
+        const  res = await PIZZA_INSTANCE.post(`/${pizzaData.id}`, pizzaData)
         return res.data
     }catch(error) {throw error}
 }

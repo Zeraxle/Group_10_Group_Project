@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { findUsersFavPizza } from '../services/UserServices'
+import { findUsersFavPizza, updateById } from '../services/UserServices'
 import { useNavigate } from 'react-router-dom'
+import { updatePizzaById } from '../services/PizzaService'
 
 export const UpdatePizzaForm = ({loggedInUser}) => {
 
   const navigate = useNavigate()
   const [pizzaData, setPizzaData] = useState({
     userId: loggedInUser.id,
+    id: '',
     method: '',
     size: '',
     crust: '',
@@ -63,10 +65,12 @@ export const UpdatePizzaForm = ({loggedInUser}) => {
       alert("Please fill out form correctly. Thank you.")
       return
     }
-    createPizza(pizzaData)
-      .then(res=>console.log(res))
-      .then(navigate('/home'))
-      .catch(err=>console.log(err))
+    updatePizzaById(pizzaData)
+    .then(res=>{
+      console.log(res)
+      navigate('/account')
+    })
+    .catch(err=>console.log(err))
   }
   
   return (<>
