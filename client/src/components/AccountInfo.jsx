@@ -197,7 +197,6 @@ export const AccountInfo = ({loggedInUser}) => {
                         </div>
                     ))
                 }
-
             </section>
         </div>
     </div>
