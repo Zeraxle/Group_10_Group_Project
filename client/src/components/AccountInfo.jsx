@@ -94,9 +94,9 @@ export const AccountInfo = ({loggedInUser}) => {
 
     const deleteHandler = id => {
         deletePizzaById(id)
-        .then(res => {
-            usersPizzas.filter()
-        })
+        .then(res => console.log(res))
+        .catch(err=> console.log(err))
+        setUsersPizza(prev=> prev.filter(pizza=> id != pizza.id))
     } 
         
     
