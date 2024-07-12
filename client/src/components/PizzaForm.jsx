@@ -48,7 +48,7 @@ export const PizzaForm = ({loggedInUser}) => {
     }
     return true
   }
-  console.log(pizzaData)
+  // console.log(pizzaData)
   const submitHandler = e => {
     e.preventDefault()
     if(!readyToSubmit()){
@@ -56,7 +56,7 @@ export const PizzaForm = ({loggedInUser}) => {
       return
     }
     createPizza(pizzaData)
-      .then(res=>console.log(res))
+      // .then(res=>console.log(res))
       .then(navigate('/home'))
       .catch(err=>console.log(err))
   }

@@ -22,7 +22,7 @@ export const UpdatePizzaForm = ({loggedInUser}) => {
   useEffect(()=>{
     findUsersFavPizza(loggedInUser.id)
     .then(res => {
-      console.log(res)
+      // console.log(res)
       setPizzaData(res)
     })
     .catch(err=> console.log(err))
@@ -58,7 +58,7 @@ export const UpdatePizzaForm = ({loggedInUser}) => {
     }
     return true
   }
-  console.log(pizzaData)
+  // console.log(pizzaData)
   const submitHandler = e => {
     e.preventDefault()
     if(!readyToSubmit()){
@@ -67,7 +67,7 @@ export const UpdatePizzaForm = ({loggedInUser}) => {
     }
     updatePizzaById(pizzaData)
     .then(res=>{
-      console.log(res)
+      // console.log(res)
       navigate('/account')
     })
     .catch(err=>console.log(err))
